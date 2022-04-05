@@ -14,7 +14,8 @@
             <input formControlName="email" type="email" class="form-control" id="floatingInput"
               placeholder="name@example.com">
             <label for="floatingInput">Eposta Adresi</label>
-            <div class="text-danger" *ngIf="(loginForm.get('email').touched || loginForm.get('email').dirty) && loginForm.get('email').errors">
+            <div class="text-danger"
+              *ngIf="(loginForm.get('email').touched || loginForm.get('email').dirty) && loginForm.get('email').errors">
               <div *ngIf="loginForm.get('email').errors.email">Geçersiz eposta</div>
               <div *ngIf="loginForm.get('email').errors.required">Eposta boş olamaz</div>
               <div *ngIf="loginForm.get('email').errors.maxlength">Eposta maksimum 50 karakter olabilir</div>
@@ -24,13 +25,16 @@
             <input formControlName="password" type="password" class="form-control" id="floatingPassword"
               placeholder="Password">
             <label for="floatingPassword">Şifre</label>
-            <div class="text-danger" *ngIf="(loginForm.get('password').touched || loginForm.get('password').dirty) && loginForm.get('password').errors">
+            <div class="text-danger"
+              *ngIf="(loginForm.get('password').touched || loginForm.get('password').dirty) && loginForm.get('password').errors">
               <div *ngIf="loginForm.get('password').errors.minlength">Şifre en az 6 karakter olabilir</div>
               <div *ngIf="loginForm.get('password').errors.required">Şifre boş olamaz</div>
             </div>
           </div>
-          <button (click)="login()" [disabled]="!loginForm.valid || !isLoad" class="w-100 btn btn-lg btn-primary mb-3" type="submit">
-            <span *ngIf="!isLoad" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&nbsp;
+          <button (click)="login()" [disabled]="!loginForm.valid || !isLoad" class="w-100 btn btn-lg btn-primary mb-3"
+            type="submit">
+            <span *ngIf="!isLoad" class="spinner-border spinner-border-sm" role="status"
+              aria-hidden="true"></span>&nbsp;
             <span *ngIf="!isLoad" class="">Giriş Yapılıyor...</span>
             <span *ngIf="isLoad">Giriş Yap</span>
           </button>
