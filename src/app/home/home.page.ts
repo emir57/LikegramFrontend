@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SwalIconType, SwalPositionType, SwalService } from '../services/swal.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,9 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public swalService:SwalService) {}
 
+  showMessage(){
+    this.swalService.showSuccessAlert("işlem başarılı",{iconType:SwalIconType.Warning})
+  }
 }
