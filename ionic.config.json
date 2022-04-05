@@ -1,0 +1,7 @@
+{
+  "name": "LikegramFrontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
