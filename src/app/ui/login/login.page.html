@@ -11,9 +11,9 @@
       <div class="col-md-10 mx-auto col-lg-5">
         <form [formGroup]="loginForm" class="p-4 p-md-5 border rounded-3 bg-light">
           <div class="form-floating mb-3">
-            <input formControlName="email" type="email" class="form-control" id="floatingInput"
+            <input formControlName="email" type="email" class="form-control" id="email"
               placeholder="name@example.com">
-            <label for="floatingInput">Eposta Adresi</label>
+            <label for="email">Eposta Adresi</label>
             <div class="text-danger"
               *ngIf="(loginForm.get('email').touched || loginForm.get('email').dirty) && loginForm.get('email').errors">
               <div *ngIf="loginForm.get('email').errors.email">Geçersiz eposta</div>
@@ -22,9 +22,9 @@
             </div>
           </div>
           <div class="form-floating mb-3">
-            <input formControlName="password" type="password" class="form-control" id="floatingPassword"
+            <input formControlName="password" type="password" class="form-control" id="password"
               placeholder="Password">
-            <label for="floatingPassword">Şifre</label>
+            <label for="password">Şifre</label>
             <div class="text-danger"
               *ngIf="(loginForm.get('password').touched || loginForm.get('password').dirty) && loginForm.get('password').errors">
               <div *ngIf="loginForm.get('password').errors.minlength">Şifre en az 6 karakter olabilir</div>
