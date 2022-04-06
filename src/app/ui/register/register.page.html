@@ -41,6 +41,16 @@
               <div *ngIf="registerForm.get('password').errors.required">Şifre boş olamaz</div>
             </div>
           </div>
+          <div class="form-floating mb-3">
+            <input formControlName="rePassword" type="password" class="form-control" id="rePassword"
+              placeholder="RePassword">
+            <label for="rePassword">Şifre Tekrarı</label>
+            <div class="text-danger"
+              *ngIf="(registerForm.get('rePassword').touched || registerForm.get('rePassword').dirty) && registerForm.get('rePassword').errors">
+              <div *ngIf="registerForm.get('rePassword').errors.minlength">Şifre tekrarı en az 6 karakter olabilir</div>
+              <div *ngIf="registerForm.get('rePassword').errors.required">Şifre tekrarı boş olamaz</div>
+            </div>
+          </div>
           <button (click)="register()" [disabled]="!registerForm.valid || !isLoad" class="w-100 btn btn-lg btn-primary mb-3"
             type="submit">
             <span *ngIf="!isLoad" class="spinner-border spinner-border-sm" role="status"
