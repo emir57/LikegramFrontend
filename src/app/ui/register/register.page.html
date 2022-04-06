@@ -17,12 +17,12 @@
             <div class="text-danger"
               *ngIf="(registerForm.get('username').touched || registerForm.get('username').dirty) && registerForm.get('username').errors">
               <div *ngIf="registerForm.get('username').errors.required">Kullanıcı adı boş olamaz</div>
-              <div *ngIf="registerForm.get('username').errors.maxlength">Kullanıcı adı en fazla 20 karakter olabilir</div>
+              <div *ngIf="registerForm.get('username').errors.maxlength">Kullanıcı adı en fazla 20 karakter olabilir
+              </div>
             </div>
           </div>
           <div class="form-floating mb-3">
-            <input formControlName="email" type="email" class="form-control" id="email"
-              placeholder="name@example.com">
+            <input formControlName="email" type="email" class="form-control" id="email" placeholder="name@example.com">
             <label for="email">Eposta Adresi</label>
             <div class="text-danger"
               *ngIf="(registerForm.get('email').touched || registerForm.get('email').dirty) && registerForm.get('email').errors">
@@ -32,8 +32,7 @@
             </div>
           </div>
           <div class="form-floating mb-3">
-            <input formControlName="password" type="password" class="form-control" id="password"
-              placeholder="Password">
+            <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
             <label for="password">Şifre</label>
             <div class="text-danger"
               *ngIf="(registerForm.get('password').touched || registerForm.get('password').dirty) && registerForm.get('password').errors">
@@ -50,9 +49,12 @@
               <div *ngIf="registerForm.get('rePassword').errors.minlength">Şifre tekrarı en az 6 karakter olabilir</div>
               <div *ngIf="registerForm.get('rePassword').errors.required">Şifre tekrarı boş olamaz</div>
             </div>
+            <div class="text-danger"
+              *ngIf="((registerForm.get('rePassword').touched || registerForm.get('rePassword').dirty))&&registerForm.hasError('notSame')">
+              Şifreler uyuşmuyor</div>
           </div>
-          <button (click)="register()" [disabled]="!registerForm.valid || !isLoad" class="w-100 btn btn-lg btn-primary mb-3"
-            type="submit">
+          <button (click)="register()" [disabled]="!registerForm.valid || !isLoad"
+            class="w-100 btn btn-lg btn-primary mb-3" type="submit">
             <span *ngIf="!isLoad" class="spinner-border spinner-border-sm" role="status"
               aria-hidden="true"></span>&nbsp;
             <span *ngIf="!isLoad" class="">Giriş Yapılıyor...</span>
