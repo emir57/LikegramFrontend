@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Kullanıcı Adı</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="card mx-auto m-5 pt-2 pb-2 pe-1 ps-1" style="width: 18rem;">
+    <h2>
+      <img class="post_kullanici_photo" src="../../../../assets/download.jpg" alt="">&nbsp;<span
+        class="post_kullanici_adi">Kullanıcı Adı</span>
+    </h2>
+    <img src="../../../../assets/download.jpg" class="card-img-top" alt="a">
+    <div class="card-body">
+      <p class="card-text">Lorem ipsum dolor sit amet.</p>
+      <div class="post_navigation">
+        <a (click)="postLike()">
+          <ion-icon name="heart-outline"></ion-icon>
+        </a>
+        <a (click)="postComment()">
+          <ion-icon name="chatbubble-outline"></ion-icon>
+        </a>
+        <a (click)="postSend()">
+          <ion-icon name="paper-plane-outline"></ion-icon>
+        </a>
+        <a (click)="postSave()">
+          <ion-icon name="bookmark-outline"></ion-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+</ion-content>

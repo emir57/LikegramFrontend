@@ -1,0 +1,30 @@
+.post_kullanici_photo {
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.post_kullanici_adi {
+  font-size: medium;
+}
+
+.post_navigation {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 27px;
+}
+.post_navigation a {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.post_navigation a:first-child {
+  font-size: 30px;
+}
+.post_navigation a:last-child {
+  margin-left: auto;
+}
