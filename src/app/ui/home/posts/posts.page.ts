@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $: any;
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.page.html',
@@ -7,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsPage implements OnInit {
 
+  isClickHeart:boolean=false;
+  isClickBookmark:boolean=false;
   constructor() { }
 
   ngOnInit() {
   }
 
   postLike() {
-
+    if(this.isClickHeart) this.isClickHeart = false
+    else this.isClickHeart = true;
   }
 
   postComment() {
@@ -25,7 +28,8 @@ export class PostsPage implements OnInit {
   }
 
   postSave() {
-
+    if(this.isClickBookmark) this.isClickBookmark = false
+    else this.isClickBookmark = true;
   }
 
 }

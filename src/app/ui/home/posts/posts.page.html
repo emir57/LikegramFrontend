@@ -20,7 +20,8 @@
       <p class="card-text">Lorem ipsum dolor sit amet.</p>
       <div class="post_navigation">
         <a (click)="postLike()">
-          <ion-icon name="heart-outline"></ion-icon>
+          <ion-icon *ngIf="!isClickHeart" name="heart-outline"></ion-icon>
+          <ion-icon class="text-danger" *ngIf="isClickHeart" name="heart"></ion-icon>
         </a>
         <a (click)="postComment()">
           <ion-icon name="chatbubble-outline"></ion-icon>
@@ -29,7 +30,8 @@
           <ion-icon name="paper-plane-outline"></ion-icon>
         </a>
         <a (click)="postSave()">
-          <ion-icon name="bookmark-outline"></ion-icon>
+          <ion-icon *ngIf="!isClickBookmark" name="bookmark-outline"></ion-icon>
+          <ion-icon class="text-primary" *ngIf="isClickBookmark" name="bookmark"></ion-icon>
         </a>
       </div>
     </div>
