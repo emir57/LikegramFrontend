@@ -40,3 +40,16 @@
 .post_navigation a:last-child {
   margin-left: auto;
 }
+
+#ion-title{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+#ion-title span:last-child{
+  margin-left: auto;
+  font-size: 30px;
+  margin-top: 9px;
+  margin-right: -2px;
+}

@@ -1,6 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Kullanıcı Adı</ion-title>
+    <ion-title>
+      <div id="ion-title">
+        <span>Kullanıc Adı</span>
+        <span>
+          <ion-icon name="compass-outline"></ion-icon>
+        </span>
+      </div>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -31,7 +38,7 @@
         </a>
         <a (click)="postSave()">
           <ion-icon *ngIf="!isClickBookmark" name="bookmark-outline"></ion-icon>
-          <ion-icon class="text-primary" *ngIf="isClickBookmark" name="bookmark"></ion-icon>
+          <ion-icon class="text-black" *ngIf="isClickBookmark" name="bookmark"></ion-icon>
         </a>
       </div>
     </div>
