@@ -14,43 +14,39 @@
             <input formControlName="username" type="text" class="form-control" id="username"
               placeholder="name@example.com">
             <label for="username">Kullanıcı Adı</label>
-            <div class="text-danger"
-              *ngIf="(registerForm.get('username').touched || registerForm.get('username').dirty) && registerForm.get('username').errors">
-              <div *ngIf="registerForm.get('username').errors.required">Kullanıcı adı boş olamaz</div>
-              <div *ngIf="registerForm.get('username').errors.maxlength">Kullanıcı adı en fazla 20 karakter olabilir
+            <div class="text-danger" *ngIf="(username.touched || username.dirty) && username.errors">
+              <div *ngIf="username.errors.required">Kullanıcı adı boş olamaz</div>
+              <div *ngIf="username.errors.maxlength">Kullanıcı adı en fazla 20 karakter olabilir
               </div>
             </div>
           </div>
           <div class="form-floating mb-3">
             <input formControlName="email" type="email" class="form-control" id="email" placeholder="name@example.com">
             <label for="email">Eposta Adresi</label>
-            <div class="text-danger"
-              *ngIf="(registerForm.get('email').touched || registerForm.get('email').dirty) && registerForm.get('email').errors">
-              <div *ngIf="registerForm.get('email').errors.email">Geçersiz eposta</div>
-              <div *ngIf="registerForm.get('email').errors.required">Eposta boş olamaz</div>
-              <div *ngIf="registerForm.get('email').errors.maxlength">Eposta maksimum 50 karakter olabilir</div>
+            <div class="text-danger" *ngIf="(email.touched || email.dirty) && email.errors">
+              <div *ngIf="email.errors.email">Geçersiz eposta</div>
+              <div *ngIf="email.errors.required">Eposta boş olamaz</div>
+              <div *ngIf="email.errors.maxlength">Eposta maksimum 50 karakter olabilir</div>
             </div>
           </div>
           <div class="form-floating mb-3">
             <input formControlName="password" type="password" class="form-control" id="password" placeholder="Password">
             <label for="password">Şifre</label>
-            <div class="text-danger"
-              *ngIf="(registerForm.get('password').touched || registerForm.get('password').dirty) && registerForm.get('password').errors">
-              <div *ngIf="registerForm.get('password').errors.minlength">Şifre en az 6 karakter olabilir</div>
-              <div *ngIf="registerForm.get('password').errors.required">Şifre boş olamaz</div>
+            <div class="text-danger" *ngIf="(password.touched || password.dirty) && password.errors">
+              <div *ngIf="password.errors.minlength">Şifre en az 6 karakter olabilir</div>
+              <div *ngIf="password.errors.required">Şifre boş olamaz</div>
             </div>
           </div>
           <div class="form-floating mb-3">
             <input formControlName="rePassword" type="password" class="form-control" id="rePassword"
               placeholder="RePassword">
             <label for="rePassword">Şifre Tekrarı</label>
-            <div class="text-danger"
-              *ngIf="(registerForm.get('rePassword').touched || registerForm.get('rePassword').dirty) && registerForm.get('rePassword').errors">
-              <div *ngIf="registerForm.get('rePassword').errors.minlength">Şifre tekrarı en az 6 karakter olabilir</div>
-              <div *ngIf="registerForm.get('rePassword').errors.required">Şifre tekrarı boş olamaz</div>
+            <div class="text-danger" *ngIf="(rePassword.touched || rePassword.dirty) && rePassword.errors">
+              <div *ngIf="rePassword.errors.minlength">Şifre tekrarı en az 6 karakter olabilir</div>
+              <div *ngIf="rePassword.errors.required">Şifre tekrarı boş olamaz</div>
             </div>
             <div class="text-danger"
-              *ngIf="((registerForm.get('rePassword').touched || registerForm.get('rePassword').dirty))&&registerForm.hasError('notSame')">
+              *ngIf="((rePassword.touched || rePassword.dirty))&&registerForm.hasError('notSame')">
               Şifreler uyuşmuyor</div>
           </div>
           <button (click)="register()" [disabled]="!registerForm.valid || !isLoad"

@@ -15,10 +15,10 @@
               placeholder="name@example.com">
             <label for="email">Eposta Adresi</label>
             <div class="text-danger"
-              *ngIf="(loginForm.get('email').touched || loginForm.get('email').dirty) && loginForm.get('email').errors">
-              <div *ngIf="loginForm.get('email').errors.email">Geçersiz eposta</div>
-              <div *ngIf="loginForm.get('email').errors.required">Eposta boş olamaz</div>
-              <div *ngIf="loginForm.get('email').errors.maxlength">Eposta maksimum 50 karakter olabilir</div>
+              *ngIf="(email.touched || email.dirty) && email.errors">
+              <div *ngIf="email.errors.email">Geçersiz eposta</div>
+              <div *ngIf="email.errors.required">Eposta boş olamaz</div>
+              <div *ngIf="email.errors.maxlength">Eposta maksimum {{email.errors.maxlength.requiredLength}} karakter olabilir</div>
             </div>
           </div>
           <div class="form-floating mb-3">
@@ -26,9 +26,9 @@
               placeholder="Password">
             <label for="password">Şifre</label>
             <div class="text-danger"
-              *ngIf="(loginForm.get('password').touched || loginForm.get('password').dirty) && loginForm.get('password').errors">
-              <div *ngIf="loginForm.get('password').errors.minlength">Şifre en az 6 karakter olabilir</div>
-              <div *ngIf="loginForm.get('password').errors.required">Şifre boş olamaz</div>
+              *ngIf="(password.touched || password.dirty) && password.errors">
+              <div *ngIf="password.errors.minlength">Şifre en az {{password.errors.minlength.requiredLength}} karakter olabilir</div>
+              <div *ngIf="password.errors.required">Şifre boş olamaz</div>
             </div>
           </div>
           <button (click)="login()" [disabled]="!loginForm.valid || !isLoad" class="w-100 btn btn-lg btn-primary mb-3"

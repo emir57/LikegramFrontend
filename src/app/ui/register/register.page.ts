@@ -28,6 +28,19 @@ export class RegisterPage implements OnInit {
 
   }
 
+  get username() {
+    return this.registerForm.get("username");
+  }
+  get email() {
+    return this.registerForm.get("email");
+  }
+  get password() {
+    return this.registerForm.get("password");
+  }
+  get rePassword() {
+    return this.registerForm.get("rePassword");
+  }
+
   checkPasswords: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
     let password = group.get("password").value;
     let rePassword = group.get("rePassword").value;

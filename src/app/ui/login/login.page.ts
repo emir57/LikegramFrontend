@@ -22,11 +22,18 @@ export class LoginPage implements OnInit {
     })
   }
 
-  login(){
+  login() {
     this.isLoad = false;
     setTimeout(() => {
       this.isLoad = true;
     }, 2000);
+  }
+
+  get email() {
+    return this.loginForm.get("email");
+  }
+  get password() {
+    return this.loginForm.get("password");
   }
 
 }
