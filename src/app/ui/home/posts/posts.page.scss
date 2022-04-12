@@ -6,6 +6,18 @@
   background-size: cover;
   border-radius: 50%;
 }
+.post_title{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 2px;
+}
+.post_title span:last-child{
+  margin-left: auto;
+}
+.post_title span:nth-child(2){
+  margin-left: 6px;
+}
 
 .post_kullanici_adi {
   font-size: medium;
