@@ -23,10 +23,12 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.isLoad = false;
-    setTimeout(() => {
-      this.isLoad = true;
-    }, 2000);
+    if (this.loginForm.valid) {
+      this.isLoad = false;
+      setTimeout(() => {
+        this.isLoad = true;
+      }, 2000);
+    }
   }
 
   get email() {
