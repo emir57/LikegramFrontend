@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usermodel } from 'src/app/services/auth.service';
+import { KeyType, StorageService } from 'src/app/services/storage.service';
 declare var $: any;
 @Component({
   selector: 'app-posts',
@@ -9,10 +11,17 @@ export class PostsPage implements OnInit {
 
   isClickHeart: boolean = false;
   isClickBookmark: boolean = false;
+  user: Usermodel
   items: any[] = [{}, {}, {}, {}]
-  constructor() { }
+  constructor(
+    private storageService: StorageService
+  ) { }
 
   ngOnInit() {
+    this.getUser();
+  }
+  async getUser() {
+    this.user = JSON.parse(await this.storageService.checkName(KeyType.User))
   }
 
   postLike(id: string) {

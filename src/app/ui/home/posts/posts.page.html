@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>
       <div id="ion-title">
-        <span>Kullanıc Adı</span>
+        <span *ngIf="user">{{user.username}}</span>
         <span>
           <ion-icon name="compass-outline"></ion-icon>
         </span>
