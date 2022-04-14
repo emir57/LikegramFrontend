@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as Swal from '../../../node_modules/swal/swal.min.js'
+import * as Swal from '../../../src/assets/js/swal.min.js'
 @Injectable({
   providedIn: 'root'
 })
