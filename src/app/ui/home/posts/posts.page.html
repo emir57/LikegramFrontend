@@ -12,6 +12,7 @@
 </ion-header>
 
 <ion-content>
+
   <div class="card mx-auto m-5 pt-2 pb-2 pe-1 ps-1" style="width: 18rem;">
     <h2 class="post_title">
       <span>
@@ -26,9 +27,11 @@
     <div class="card-body">
       <p class="card-text">Lorem ipsum dolor sit amet.</p>
       <div class="post_navigation">
-        <a (click)="postLike()">
-          <ion-icon *ngIf="!isClickHeart" name="heart-outline"></ion-icon>
-          <ion-icon class="text-danger" *ngIf="isClickHeart" name="heart"></ion-icon>
+        <a id="postlike1" (click)="postLike('1')">
+          <ion-icon style="transition: font-size .5s;" id="postlike1_1" *ngIf="!isClickHeart" name="heart-outline">
+          </ion-icon>
+          <ion-icon style="transition: font-size .5s;" id="postlike1_2" *ngIf="isClickHeart" class="text-danger"
+            name="heart"></ion-icon>
         </a>
         <a (click)="postComment()">
           <ion-icon name="chatbubble-outline"></ion-icon>
@@ -36,11 +39,14 @@
         <a (click)="postSend()">
           <ion-icon name="paper-plane-outline"></ion-icon>
         </a>
-        <a (click)="postSave()">
-          <ion-icon *ngIf="!isClickBookmark" name="bookmark-outline"></ion-icon>
-          <ion-icon class="text-black" *ngIf="isClickBookmark" name="bookmark"></ion-icon>
+        <a (click)="postSave('1')">
+          <ion-icon id="postsave1_1" style="transition: font-size .5s;" *ngIf="!isClickBookmark" name="bookmark-outline">
+          </ion-icon>
+          <ion-icon id="postsave1_2" style="transition: font-size .5s;" class="text-black" *ngIf="isClickBookmark"
+            name="bookmark"></ion-icon>
         </a>
       </div>
     </div>
   </div>
+
 </ion-content>
