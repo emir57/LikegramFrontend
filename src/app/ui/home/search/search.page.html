@@ -1,9 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>search</ion-title>
+    <ion-title>
+      <ion-searchbar showCancelButton="focus"></ion-searchbar>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-list>
+    <ion-item (click)="goToUserPage()">
+      <ion-label>
+        <h2 class="post_title">
+          <span>
+            <img class="post_kullanici_photo" src="../../../../assets/download.jpg" alt="">
+          </span>
+          <span class="post_kullanici_adi">Kullanıcı Adı</span>
+          <span>
+            <ion-button (click)="goToUserPage()" expand="block" fill="clear" shape="round">
+              Profile Git
+            </ion-button>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="goToUserPage()">
+      <ion-label>
+        <h2 class="post_title">
+          <span>
+            <img class="post_kullanici_photo" src="../../../../assets/download.jpg" alt="">
+          </span>
+          <span class="post_kullanici_adi">Kullanıcı Adı</span>
+          <span>
+            <ion-button (click)="goToUserPage()" expand="block" fill="clear" shape="round">
+              Profile Git
+            </ion-button>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

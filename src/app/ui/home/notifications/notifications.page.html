@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Notifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <h2 class="post_title">
+          <span (click)="goToUserPage()">
+            <img class="post_kullanici_photo" src="../../../../assets/download.jpg" alt="">
+          </span>
+          <span style="width: 100%;" class="post_kullanici_adi">
+            <span style="display: block;width: 100%;"><b>Kullanıcı Adı</b> gönderini beğendi</span>
+            <span style="display: inline-block;float: right;">
+              <small><i>2 saat önce</i></small>
+            </span>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2 class="post_title">
+          <span (click)="goToUserPage()">
+            <img class="post_kullanici_photo" src="../../../../assets/download.jpg" alt="">
+          </span>
+          <span style="width: 100%;" class="post_kullanici_adi">
+            <span style="display: block"><b>Kullanıcı Adı</b> seni etiketledi</span>
+            <span style="display: inline-block;float: right;">
+              <small><i>2 saat önce</i></small>
+            </span>
+          </span>
+        </h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
