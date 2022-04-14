@@ -9,6 +9,7 @@ export class PostsPage implements OnInit {
 
   isClickHeart: boolean = false;
   isClickBookmark: boolean = false;
+  items: any[] = [{}, {}, {}, {}]
   constructor() { }
 
   ngOnInit() {
