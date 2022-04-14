@@ -1,0 +1,54 @@
+#title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+}
+
+#title span:nth-child(2) {
+  margin-left: auto;
+  margin-top: 3%;
+}
+
+#title span:nth-child(2) {
+  font-size: xx-large;
+}
+
+#profile {
+  padding: 15px;
+}
+
+#top-navigation {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#top-navigation span {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+#top-navigation span:nth-child(2) {
+  font-size: large;
+}
+
+#top-navigation img {
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+}
+
+#bottom-navigation {
+  display: flex;
+  justify-content: center;
+}
+
+#bottom-navigation div {
+  display: inline-block;
+  margin: 0 2px 0 2px;
+}
+#bottom-navigation div span{
+  display: block;
+  align-items: center;
+}
