@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { LoadingService } from 'src/app/services/loading.service';
+import { SwalIconType, SwalService } from 'src/app/services/swal.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +13,13 @@ import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn,
 export class RegisterPage implements OnInit {
   isLoad = true;
   registerForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private loadingService: LoadingService,
+    private messageService: SwalService,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.createRegisterForm();
@@ -25,7 +35,30 @@ export class RegisterPage implements OnInit {
   }
 
   register() {
-
+    if (this.registerForm.valid) {
+      let registerModel = this.registerForm.value;
+      delete registerModel.rePassword;
+      this.isLoad = false;
+      this.loadingService.showLoader("Kayıt işlemi yapılıyor");
+      this.authService.register(registerModel).subscribe(response => {
+        if (response.success) {
+          this.messageService.showSuccessAlert(response.message, { iconType: SwalIconType.Success });
+          this.isLoad = true;
+          this.loadingService.closeLoader();
+          setTimeout(() => {
+            this.router.navigateByUrl("/login");
+          }, 500);
+        } else {
+          this.isLoad = true;
+          this.loadingService.closeLoader();
+          this.messageService.showSuccessAlert(response.message, { iconType: SwalIconType.Error })
+        }
+      }, responseErr => {
+        this.isLoad = true;
+        this.loadingService.closeLoader();
+        this.messageService.showSuccessAlert(responseErr.error.message, { iconType: SwalIconType.Error })
+      })
+    }
   }
 
   get username() {

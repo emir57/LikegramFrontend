@@ -45,8 +45,8 @@ export class LoginPage implements OnInit {
           await this.storageService.setName(KeyType.Token,JSON.stringify(response.data.accessToken));
           console.log(response)
           this.messageService.showSuccessAlert("Giriş Başarılı", { iconType: SwalIconType.Success });
-          setTimeout(() => {
-            this.loadingService.closeLoader();
+          setTimeout(async () => {
+            await this.loadingService.closeLoader();
             this.isLoad = true;
           }, 1000);
           setTimeout(() => {
@@ -54,12 +54,12 @@ export class LoginPage implements OnInit {
           }, 1500);
         } else {
           this.messageService.showSuccessAlert("Bir hata oluştu", { iconType: SwalIconType.Error });
-          this.loadingService.closeLoader();
+          await this.loadingService.closeLoader();
           this.isLoad = true;
         }
-      }, responseErr => {
-        console.log(responseErr);
-        this.loadingService.closeLoader();
+      }, async responseErr => {
+        this.messageService.showSuccessAlert(responseErr.error.message, { iconType: SwalIconType.Error });
+        await this.loadingService.closeLoader();
         this.isLoad = true;
       })
     }
