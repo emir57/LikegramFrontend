@@ -33,7 +33,7 @@
           <ion-icon style="transition: font-size .5s;" id="postlike1_2" *ngIf="isClickHeart" class="text-danger"
             name="heart"></ion-icon>
         </a>
-        <a (click)="postComment()">
+        <a (click)="postComment(post)">
           <ion-icon name="chatbubble-outline"></ion-icon>
         </a>
         <a (click)="postSend()">

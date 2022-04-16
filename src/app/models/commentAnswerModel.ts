@@ -1,8 +1,9 @@
-import { Usermodel } from "../services/auth.service";
+import { Key } from "protractor";
+import { UserModel } from "./userModel";
 
 export interface CommentAnswerModel {
   id: number;
-  user: Usermodel;
+  user: UserModel;
   answer: string;
   createdDate: string;
 }

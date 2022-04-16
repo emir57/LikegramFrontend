@@ -1,4 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { CommentsPage } from 'src/app/comments/comments.page';
 import { PostModel } from 'src/app/models/postModel';
 import { Usermodel } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
@@ -20,6 +22,7 @@ export class PostsPage implements OnInit {
     private storageService: StorageService,
     private postService: PostService,
     @Inject("baseUrl") public baseUrl: string,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -72,8 +75,8 @@ export class PostsPage implements OnInit {
     }
   }
 
-  postComment() {
-
+  postComment(post: PostModel) {
+    this.openCommentModal(post)
   }
 
   postSend() {
@@ -109,4 +112,11 @@ export class PostsPage implements OnInit {
     }
   }
 
+  async openCommentModal(post: PostModel) {
+    const modal = await this.modalController.create({
+      component: CommentsPage,
+      componentProps: { postComments: post.postComments }
+    })
+    return await modal.present();
+  }
 }
