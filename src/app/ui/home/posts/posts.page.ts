@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { PostModel } from 'src/app/models/postModel';
 import { Usermodel } from 'src/app/services/auth.service';
+import { PostService } from 'src/app/services/post.service';
 import { KeyType, StorageService } from 'src/app/services/storage.service';
 declare var $: any;
 @Component({
@@ -9,19 +11,32 @@ declare var $: any;
 })
 export class PostsPage implements OnInit {
 
+  posts: PostModel[] = [];
   isClickHeart: boolean = false;
   isClickBookmark: boolean = false;
   user: Usermodel
   items: any[] = [{}, {}, {}, {}]
   constructor(
-    private storageService: StorageService
+    private storageService: StorageService,
+    private postService: PostService,
+    @Inject("baseUrl") public baseUrl: string,
   ) { }
 
   ngOnInit() {
     this.getUser();
+    setTimeout(() => {
+      this.getPosts();
+    }, 500);
   }
   async getUser() {
     this.user = JSON.parse(await this.storageService.checkName(KeyType.User))
+  }
+  getPosts() {
+    this.postService.getPosts(2).subscribe(response => {
+      if (response.success) {
+        this.posts = response.data
+      }
+    })
   }
 
   postLike(id: string) {

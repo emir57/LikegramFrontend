@@ -13,19 +13,19 @@
 
 <ion-content>
 
-  <div *ngFor="let item of items" class="card mx-auto m-5 pt-2 pb-2 pe-1 ps-1" style="width: 18rem;">
+  <div *ngFor="let post of posts" class="card mx-auto m-5 pt-2 pb-2 pe-1 ps-1" style="width: 18rem;">
     <h2 class="post_title">
       <span>
-        <img class="post_kullanici_photo" src="../../../../assets/download.jpg" alt="">
+        <img class="post_kullanici_photo" [src]="baseUrl+post.user.profilePhoto" alt="">
       </span>
-      <span class="post_kullanici_adi">Kullanıcı Adı</span>
+      <span class="post_kullanici_adi">{{post.user.username}}</span>
       <span>
         <ion-icon name="ellipsis-vertical-outline"></ion-icon>
       </span>
     </h2>
-    <img src="../../../../assets/download.jpg" class="card-img-top" alt="a">
+    <img [src]="baseUrl+post.imageUrl" class="card-img-top" alt="a">
     <div class="card-body">
-      <p class="card-text">Lorem ipsum dolor sit amet.</p>
+      <p class="card-text">{{post.description}}</p>
       <div class="post_navigation">
         <a id="postlike1" (click)="postLike('1')">
           <ion-icon style="transition: font-size .5s;" id="postlike1_1" *ngIf="!isClickHeart" name="heart-outline">
@@ -46,6 +46,14 @@
           <ion-icon id="postsave1_2" style="transition: font-size .5s;" class="text-black" *ngIf="isClickBookmark"
             name="bookmark"></ion-icon>
         </a>
+      </div>
+      <div>
+        <span class="fw-lighter">
+          <div *ngIf="post.postLikes.length>0">{{post.postLikes.length}} beğeni</div>
+          <div *ngIf="post.postLikes.length<1">henüz beğeni yok</div>
+          <div *ngIf="post.postComments.length>0">{{post.postComments.length}} yorum</div>
+          <div *ngIf="post.postComments.length<1">henüz yorum yok</div>
+        </span>
       </div>
     </div>
   </div>
