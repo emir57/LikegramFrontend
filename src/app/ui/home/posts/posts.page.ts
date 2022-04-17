@@ -42,16 +42,16 @@ export class PostsPage implements OnInit {
     })
   }
 
-  postLike(id: string) {
-    if (this.isClickHeart) {
-      this.isClickHeart = false;
+  postLike(post: PostModel) {
+    if (post.isClickHeart) {
+      post.isClickHeart = false;
       setTimeout(() => {
-        $("#postlike" + id + "_1").animate({
+        $("#postlike" + post.id + "_1").animate({
           fontSize: "30px",
           opacity: 0
         }, 0)
         setTimeout(() => {
-          $("#postlike" + id + "_1").animate({
+          $("#postlike" + post.id + "_1").animate({
             fontSize: "30px",
             opacity: 1
           })
@@ -59,14 +59,14 @@ export class PostsPage implements OnInit {
       }, 100);
     }
     else {
-      this.isClickHeart = true;
+      post.isClickHeart = true;
       setTimeout(() => {
-        $("#postlike" + id + "_2").animate({
+        $("#postlike" + post.id + "_2").animate({
           fontSize: "30px",
           opacity: 0
         }, 0)
         setTimeout(() => {
-          $("#postlike" + id + "_2").animate({
+          $("#postlike" + post.id + "_2").animate({
             fontSize: "30px",
             opacity: 1
           })

@@ -27,10 +27,10 @@
     <div class="card-body">
       <p class="card-text">{{post.description}}</p>
       <div class="post_navigation">
-        <a id="postlike1" (click)="postLike('1')">
-          <ion-icon style="transition: font-size .5s;" id="postlike1_1" *ngIf="!isClickHeart" name="heart-outline">
+        <a (click)="postLike(post)">
+          <ion-icon style="transition: font-size .5s;" id="postlike{{post.id}}_1" *ngIf="!post.isClickHeart" name="heart-outline">
           </ion-icon>
-          <ion-icon style="transition: font-size .5s;" id="postlike1_2" *ngIf="isClickHeart" class="text-danger"
+          <ion-icon style="transition: font-size .5s;" id="postlike{{post.id}}_2" *ngIf="post.isClickHeart" class="text-danger"
             name="heart"></ion-icon>
         </a>
         <a (click)="postComment(post)">
