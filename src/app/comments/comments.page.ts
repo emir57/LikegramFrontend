@@ -24,8 +24,18 @@ export class CommentsPage implements OnInit {
 
 
   ngOnInit() {
+    this.sortComments();
+    this.sortAnswers();
     this.getUser();
-    console.log(this.postComments)
+  }
+
+  sortComments(){
+    this.postComments.sort((a,b)=>(new Date(b.createdDate)).getTime()-(new Date(a.createdDate)).getTime())
+  }
+  sortAnswers(){
+    this.postComments.forEach(comment=>{
+      comment.commentAnswers.sort((a,b)=>(new Date(b.createdDate)).getTime()-(new Date(a.createdDate)).getTime())
+    })
   }
   async getUser() {
     this.user = JSON.parse(await this.storageService.checkName(KeyType.User));
@@ -36,14 +46,28 @@ export class CommentsPage implements OnInit {
 
   doAnswer(comment: PostCommentModel) {
     let today = new Date();
+
     let answer = $("#doAnswer" + comment.id).val();
     let answerModel: CommentAnswerModel = {
       answer: answer,
-      createdDate: today.toDateString(),
+      createdDate: (new Date(today.getFullYear(),today.getMonth(),today.getDate(),today.getHours(),today.getMinutes())).toString(),
       user: this.user,
       id: 1
     }
     comment.commentAnswers.push(answerModel);
+  }
+  sendComment() {
+    let today = new Date();
+    let comment = $("#doComment").val();
+    let commentModel: PostCommentModel = {
+      comment: comment,
+      user: this.user,
+      createdDate: (new Date(today.getFullYear(),today.getMonth(),today.getDate(),today.getHours(),today.getMinutes())).toString(),
+      commentAnswers: [],
+      id: 0
+    }
+    this.postComments.push(commentModel)
+    this.sortComments();
   }
 
   getDate(dateString: string) {
