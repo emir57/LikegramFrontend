@@ -13,4 +13,5 @@ export interface PostModel {
   postLikes: PostLikeModel[];
   isClickHeart: boolean;
   isClickBookmark: boolean;
+  isClickComment: boolean;
 }

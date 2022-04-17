@@ -76,6 +76,7 @@ export class PostsPage implements OnInit {
   }
 
   postComment(post: PostModel) {
+    post.isClickComment = true;
     this.openCommentModal(post)
   }
 
@@ -116,6 +117,11 @@ export class PostsPage implements OnInit {
     const modal = await this.modalController.create({
       component: CommentsPage,
       componentProps: { postComments: post.postComments }
+    })
+    modal.onDidDismiss().then(() => {
+      setTimeout(() => {
+        post.isClickComment = false
+      }, 500);
     })
     return await modal.present();
   }

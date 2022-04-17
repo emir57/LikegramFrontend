@@ -34,7 +34,8 @@
             name="heart"></ion-icon>
         </a>
         <a (click)="postComment(post)">
-          <ion-icon name="chatbubble-outline"></ion-icon>
+          <ion-icon *ngIf="!post.isClickComment" name="chatbubble-outline"></ion-icon>
+          <ion-icon class="text-primary" *ngIf="post.isClickComment" name="chatbubble"></ion-icon>
         </a>
         <a (click)="postSend()">
           <ion-icon name="paper-plane-outline"></ion-icon>
