@@ -17,13 +17,13 @@
   <div id="profile">
     <div id="top-navigation">
       <span>
-        <img src="../../../../assets/download.jpg" alt="">
+        <img [src]="baseUrl+user.profilePhoto" alt="">
       </span>
       <span>
         <div align="center" class="mb-0 mt-2" style="font-size: large;">
           <span>
             <b>
-              KullaniciAdi
+              {{user.username}}
             </b>
           </span>
         </div>
@@ -44,7 +44,7 @@
         </div>
       </span>
     </div>
-    <div id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, doloremque!</div>
+    <div id="description">{{user.description}}</div>
     <hr>
   </div>
 </ion-content>
