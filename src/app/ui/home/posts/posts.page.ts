@@ -35,7 +35,7 @@ export class PostsPage implements OnInit {
     this.user = JSON.parse(await this.storageService.checkName(KeyType.User))
   }
   getPosts() {
-    this.postService.getPosts(2).subscribe(response => {
+    this.postService.getPosts(this.user.id).subscribe(response => {
       if (response.success) {
         this.posts = response.data
       }
@@ -127,5 +127,15 @@ export class PostsPage implements OnInit {
       }, 500);
     })
     return await modal.present();
+  }
+
+  openPostSetting(post: PostModel) {
+    let settingModal = $("#postsetting" + post.id);
+    settingModal.fadeToggle();
+  }
+
+  getDate(dateString: string) {
+    let date = new Date(dateString);
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
   }
 }

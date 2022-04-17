@@ -20,7 +20,15 @@
       </span>
       <span class="post_kullanici_adi">{{post.user.username}}</span>
       <span>
-        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+        <ion-icon (click)="openPostSetting(post)" style="cursor: pointer;" name="ellipsis-vertical-outline"></ion-icon>
+        <div id="postsetting{{post.id}}" class="list-group post_settings">
+          <a class="list-group-item list-group-item-action text-danger">
+            Şikayet Et
+          </a>
+          <a *ngIf="post.user.id === user.id" class="list-group-item list-group-item-action text-danger">
+            <ion-icon name="trash-outline"></ion-icon>&nbsp;Sil
+          </a>
+        </div>
       </span>
     </h2>
     <img [src]="baseUrl+post.imageUrl" class="card-img-top" alt="a">
@@ -28,10 +36,11 @@
       <p class="card-text">{{post.description}}</p>
       <div class="post_navigation">
         <a (click)="postLike(post)">
-          <ion-icon style="transition: font-size .5s;" id="postlike{{post.id}}_1" *ngIf="!post.isClickHeart" name="heart-outline">
+          <ion-icon style="transition: font-size .5s;" id="postlike{{post.id}}_1" *ngIf="!post.isClickHeart"
+            name="heart-outline">
           </ion-icon>
-          <ion-icon style="transition: font-size .5s;" id="postlike{{post.id}}_2" *ngIf="post.isClickHeart" class="text-danger"
-            name="heart"></ion-icon>
+          <ion-icon style="transition: font-size .5s;" id="postlike{{post.id}}_2" *ngIf="post.isClickHeart"
+            class="text-danger" name="heart"></ion-icon>
         </a>
         <a (click)="postComment(post)">
           <ion-icon *ngIf="!post.isClickComment" name="chatbubble-outline"></ion-icon>
@@ -44,8 +53,8 @@
           <ion-icon id="postsave{{post.id}}_1" style="transition: font-size .5s;" *ngIf="!post.isClickBookmark"
             name="bookmark-outline">
           </ion-icon>
-          <ion-icon id="postsave{{post.id}}_2" style="transition: font-size .5s;" class="text-black" *ngIf="post.isClickBookmark"
-            name="bookmark"></ion-icon>
+          <ion-icon id="postsave{{post.id}}_2" style="transition: font-size .5s;" class="text-black"
+            *ngIf="post.isClickBookmark" name="bookmark"></ion-icon>
         </a>
       </div>
       <div>
@@ -55,6 +64,9 @@
           <div *ngIf="post.postComments.length>0">{{post.postComments.length}} yorum</div>
           <div *ngIf="post.postComments.length<1">henüz yorum yok</div>
         </span>
+      </div>
+      <div style="float:right;font-size: small;" class="fw-lighter">
+        {{getDate(post.createdDate)}}
       </div>
     </div>
   </div>
