@@ -83,28 +83,28 @@ export class PostsPage implements OnInit {
 
   }
 
-  postSave(id: string) {
-    if (this.isClickBookmark) {
-      this.isClickBookmark = false;
+  postSave(post: PostModel) {
+    if (post.isClickBookmark) {
+      post.isClickBookmark = false;
       setTimeout(() => {
-        $("#postsave" + id + "_1").animate({
+        $("#postsave" + post.id + "_1").animate({
           opacity: 0
         }, 0)
         setTimeout(() => {
-          $("#postsave" + id + "_1").animate({
+          $("#postsave" + post.id + "_1").animate({
             opacity: 1
           })
         }, 200);
       }, 100);
     }
     else {
-      this.isClickBookmark = true;
+      post.isClickBookmark = true;
       setTimeout(() => {
-        $("#postsave" + id + "_2").animate({
+        $("#postsave" + post.id + "_2").animate({
           opacity: 0
         }, 0)
         setTimeout(() => {
-          $("#postsave" + id + "_2").animate({
+          $("#postsave" + post.id + "_2").animate({
             opacity: 1
           })
         }, 200);

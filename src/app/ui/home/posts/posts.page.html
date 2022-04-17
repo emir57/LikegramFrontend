@@ -39,11 +39,11 @@
         <a (click)="postSend()">
           <ion-icon name="paper-plane-outline"></ion-icon>
         </a>
-        <a (click)="postSave('1')">
-          <ion-icon id="postsave1_1" style="transition: font-size .5s;" *ngIf="!isClickBookmark"
+        <a (click)="postSave(post)">
+          <ion-icon id="postsave{{post.id}}_1" style="transition: font-size .5s;" *ngIf="!post.isClickBookmark"
             name="bookmark-outline">
           </ion-icon>
-          <ion-icon id="postsave1_2" style="transition: font-size .5s;" class="text-black" *ngIf="isClickBookmark"
+          <ion-icon id="postsave{{post.id}}_2" style="transition: font-size .5s;" class="text-black" *ngIf="post.isClickBookmark"
             name="bookmark"></ion-icon>
         </a>
       </div>
