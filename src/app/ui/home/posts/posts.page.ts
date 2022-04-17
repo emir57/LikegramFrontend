@@ -116,7 +116,10 @@ export class PostsPage implements OnInit {
   async openCommentModal(post: PostModel) {
     const modal = await this.modalController.create({
       component: CommentsPage,
-      componentProps: { postComments: post.postComments }
+      componentProps: {
+        postComments: post.postComments,
+        postId: post.id
+      }
     })
     modal.onDidDismiss().then(() => {
       setTimeout(() => {

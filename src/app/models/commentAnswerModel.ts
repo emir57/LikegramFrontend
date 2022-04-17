@@ -6,4 +6,6 @@ export interface CommentAnswerModel {
   user: UserModel;
   answer: string;
   createdDate: string;
+  userId?: number;
+  postCommentId?: number;
 }
