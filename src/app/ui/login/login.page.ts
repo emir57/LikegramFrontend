@@ -64,7 +64,7 @@ export class LoginPage implements OnInit {
         await this.loadingService.closeLoader();
         this.isLoad = true;
         if (responseErr.error.message === "Lütfen eposta adresinizi onaylayınız") {
-          this.presentAlertPrompt();
+          this.presentAlertPrompt(loginModel.email);
         }
       })
     }
@@ -77,7 +77,7 @@ export class LoginPage implements OnInit {
     return this.loginForm.get("password");
   }
 
-  async presentAlertPrompt() {
+  async presentAlertPrompt(userEmail: string) {
     const alert = await this.alertController.create({
       header: 'Lütfen eposta adresinize gelen doğrulama kodunu giriniz',
       inputs: [
@@ -99,6 +99,13 @@ export class LoginPage implements OnInit {
           text: 'Doğrlua',
           handler: (value) => {
             console.log(value.key);
+            this.authService.emailConfirm(userEmail, value.key).subscribe(response => {
+              if (response.success) {
+                this.messageService.showSuccessAlert(response.message, { iconType: SwalIconType.Success });
+              }
+            }, responseErr => {
+              this.messageService.showSuccessAlert(responseErr.error.message, { iconType: SwalIconType.Error });
+            })
           }
         }
       ]
