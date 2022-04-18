@@ -22,6 +22,10 @@ export class AuthService {
     let url = `${this.baseUrl}api/auth/register`;
     return this.http.post<ResponseModel>(url, registerModel);
   }
+  emailConfirm(id: number, key: string) {
+    let url = `${this.baseUrl}api/auth/emailconfirm?userId=${id}&confirmKey=${key}`
+    return this.http.get<ResponseModel>(url);
+  }
 }
 
 export interface LoginModel {
