@@ -48,6 +48,7 @@ export class PostsPage implements OnInit {
     this.postLikeService.likeOrUnlike(this.user.id, post.id).subscribe(response => {
       if (response.success) {
         if (post.isClickHeart) {
+          post.postLikes.push();
           post.isClickHeart = false;
           setTimeout(() => {
             $("#postlike" + post.id + "_1").animate({
@@ -64,6 +65,7 @@ export class PostsPage implements OnInit {
         }
         else {
           post.isClickHeart = true;
+          post.postLikes.pop();
           setTimeout(() => {
             $("#postlike" + post.id + "_2").animate({
               fontSize: "30px",
