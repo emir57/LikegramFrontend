@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { CommentsPage } from 'src/app/comments/comments.page';
 import { PostModel } from 'src/app/models/postModel';
 import { Usermodel } from 'src/app/services/auth.service';
+import { PostLikeService } from 'src/app/services/post-like.service';
 import { PostService } from 'src/app/services/post.service';
 import { KeyType, StorageService } from 'src/app/services/storage.service';
 declare var $: any;
@@ -22,7 +23,8 @@ export class PostsPage implements OnInit {
     private storageService: StorageService,
     private postService: PostService,
     @Inject("baseUrl") public baseUrl: string,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private postLikeService: PostLikeService
   ) { }
 
   ngOnInit() {
@@ -43,36 +45,40 @@ export class PostsPage implements OnInit {
   }
 
   postLike(post: PostModel) {
-    if (post.isClickHeart) {
-      post.isClickHeart = false;
-      setTimeout(() => {
-        $("#postlike" + post.id + "_1").animate({
-          fontSize: "30px",
-          opacity: 0
-        }, 0)
-        setTimeout(() => {
-          $("#postlike" + post.id + "_1").animate({
-            fontSize: "30px",
-            opacity: 1
-          })
-        }, 200);
-      }, 100);
-    }
-    else {
-      post.isClickHeart = true;
-      setTimeout(() => {
-        $("#postlike" + post.id + "_2").animate({
-          fontSize: "30px",
-          opacity: 0
-        }, 0)
-        setTimeout(() => {
-          $("#postlike" + post.id + "_2").animate({
-            fontSize: "30px",
-            opacity: 1
-          })
-        }, 200);
-      }, 100);
-    }
+    this.postLikeService.likeOrUnlike(this.user.id, post.id).subscribe(response => {
+      if (response.success) {
+        if (post.isClickHeart) {
+          post.isClickHeart = false;
+          setTimeout(() => {
+            $("#postlike" + post.id + "_1").animate({
+              fontSize: "30px",
+              opacity: 0
+            }, 0)
+            setTimeout(() => {
+              $("#postlike" + post.id + "_1").animate({
+                fontSize: "30px",
+                opacity: 1
+              })
+            }, 200);
+          }, 100);
+        }
+        else {
+          post.isClickHeart = true;
+          setTimeout(() => {
+            $("#postlike" + post.id + "_2").animate({
+              fontSize: "30px",
+              opacity: 0
+            }, 0)
+            setTimeout(() => {
+              $("#postlike" + post.id + "_2").animate({
+                fontSize: "30px",
+                opacity: 1
+              })
+            }, 200);
+          }, 100);
+        }
+      }
+    })
   }
 
   postComment(post: PostModel) {
