@@ -1,9 +1,21 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { ResponseModel } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostLikeService {
 
-  constructor() { }
+  constructor(
+    @Inject("baseUrl") private baseUrl: string,
+    private http: HttpClient
+  ) { }
+
+  likeOrUnlike(userId: number, postId: number) {
+    let newUrl = `${this.baseUrl}api/postlikes`;
+    return this.http.post<ResponseModel>(newUrl, {
+      userId, postId
+    });
+  }
 }
