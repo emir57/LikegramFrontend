@@ -11,13 +11,18 @@
 
 <ion-content>
   <div style="height: 93%;width: 100%;overflow-y: scroll;overflow-x: hidden;">
-    <div *ngFor="let comment of postComments" class="comment-card mb-3 p-2" style="max-width: 540px;">
+    <div *ngFor="let comment of postComments" class="comment-card mb-3 p-2">
+      <div class="col-md-12 mb-4" style="display: flex;justify-content: start;align-items: center;">
+        <img [src]="baseUrl+comment.user.profilePhoto" class="post_kullanici_photo" alt="...">
+      </div>
       <div>
-        <div class="col-md-12 mb-4" style="display: flex;justify-content: start;align-items: center;">
-          <img [src]="baseUrl+comment.user.profilePhoto" class="post_kullanici_photo" alt="...">
-        </div>
-        <!-- <div class="mt-2" style="border-bottom: 1px solid grey;"></div> -->
-        <!-- <div>
+        {{comment.user.username}}
+      </div>
+      <div>
+        asdlkjsadl
+      </div>
+      <!-- <div class="mt-2" style="border-bottom: 1px solid grey;"></div> -->
+      <!-- <div>
           <div class="row">
             <ion-input (keyup.enter)="doAnswer(comment)" id="doAnswer{{comment.id}}" style="max-width: 80%;" placeholder="Cevap Ver"></ion-input>
             <ion-button (click)="doAnswer(comment)" style="max-width: 20%;text-align: start;" fill="clear">
@@ -25,7 +30,7 @@
             </ion-button>
           </div>
         </div> -->
-        <!-- <div *ngFor="let answer of comment.commentAnswers" class="card mb-3 p-1 ms-auto" style="max-width: 270px">
+      <!-- <div *ngFor="let answer of comment.commentAnswers" class="card mb-3 p-1 ms-auto" style="max-width: 270px">
           <div class="row">
             <div class="col-md-12 mb-4" style="display: flex;justify-content: start;align-items: center;">
               <img [src]="baseUrl+answer.user.profilePhoto" class="post_kullanici_photo" alt="...">&nbsp;<h5 class="">
@@ -38,10 +43,10 @@
             </div>
           </div>
         </div> -->
-      </div>
     </div>
   </div>
-  <div style="height: 6.8%;width: 100%;background-color: #E5E7E9;display: flex;justify-content: start;align-items: center;">
+  <div
+    style="height: 6.8%;width: 100%;background-color: #E5E7E9;display: flex;justify-content: start;align-items: center;">
     <ion-input id="doComment" style="width: 80%;"></ion-input>
     <ion-button style="width: 20%;" (click)="sendComment()" fill="clear" shape="round">
       <ion-icon name="send-outline"></ion-icon>

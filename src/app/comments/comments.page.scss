@@ -11,9 +11,22 @@
   padding: 10px;
   border-radius: 10px;
   height: auto;
+  display: flex;
+  justify-content: start;
 }
 .comment-card > div:first-child{
   height: 100%;
   width: 15%;
   background: red;
 }
+.comment-card > div:nth-child(2){
+  height: 100%;
+  width: 75%;
+  background: blue;
+}
+.comment-card > div:nth-child(3){
+  height: 100%;
+  width: 10%;
+  background: orange;
+}
+
