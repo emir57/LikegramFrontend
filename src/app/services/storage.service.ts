@@ -8,21 +8,21 @@ export class StorageService {
 
   constructor() { }
 
-  async setName(key: KeyType, value: any) {
+  async setValue(key: KeyType, value: any) {
     await Storage.set({
       key: key,
       value: value
     })
   }
 
-  async checkName(key: KeyType) {
+  async getValue(key: KeyType) {
     const { value } = await Storage.get({
       key: key
     })
     return value;
   }
 
-  async removeName(key: KeyType) {
+  async removeValue(key: KeyType) {
     await Storage.remove({
       key: key
     })
@@ -30,6 +30,6 @@ export class StorageService {
 
 }
 export enum KeyType {
-  Token = "token",
-  User = "user"
+  Token = "likegram.token",
+  User = "likegram.user"
 }
