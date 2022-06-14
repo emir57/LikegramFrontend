@@ -130,6 +130,7 @@ export class PostsPage implements OnInit {
     const modal = await this.modalController.create({
       component: CommentsPage,
       swipeToClose: true,
+      cssClass: "custom-modal",
       componentProps: {
         postComments: post.postComments,
         postId: post.id
