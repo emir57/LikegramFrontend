@@ -50,6 +50,7 @@ export class PostsPage implements OnInit {
   }
 
   postLike(post: PostModel) {
+    let fontSize = "30px";
     this.postLikeService.likeOrUnlike(this.user.id, post.id).subscribe(response => {
       if (response.success) {
         if (post.isClickHeart) {
@@ -57,12 +58,12 @@ export class PostsPage implements OnInit {
           post.isClickHeart = false;
           setTimeout(() => {
             $("#postlike" + post.id + "_1").animate({
-              fontSize: "30px",
+              fontSize: fontSize,
               opacity: 0
             }, 0)
             setTimeout(() => {
               $("#postlike" + post.id + "_1").animate({
-                fontSize: "30px",
+                fontSize: fontSize,
                 opacity: 1
               })
             }, 200);
@@ -73,12 +74,12 @@ export class PostsPage implements OnInit {
           post.postLikes.pop();
           setTimeout(() => {
             $("#postlike" + post.id + "_2").animate({
-              fontSize: "30px",
+              fontSize: fontSize,
               opacity: 0
             }, 0)
             setTimeout(() => {
               $("#postlike" + post.id + "_2").animate({
-                fontSize: "30px",
+                fontSize: fontSize,
                 opacity: 1
               })
             }, 200);
