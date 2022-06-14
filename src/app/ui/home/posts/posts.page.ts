@@ -34,7 +34,7 @@ export class PostsPage implements OnInit {
     }, 500);
   }
   async getUser() {
-    this.user = JSON.parse(await this.storageService.checkName(KeyType.User))
+    this.user = JSON.parse(await this.storageService.getValue(KeyType.User))
   }
   getPosts() {
     this.postService.getPosts(this.user.id).subscribe(response => {
