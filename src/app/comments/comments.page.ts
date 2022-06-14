@@ -45,7 +45,7 @@ export class CommentsPage implements OnInit {
     })
   }
   async getUser() {
-    this.user = JSON.parse(await this.storageService.checkName(KeyType.User));
+    this.user = JSON.parse(await this.storageService.getValue(KeyType.User));
   }
   dismiss() {
     this.modalController.dismiss();
