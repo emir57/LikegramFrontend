@@ -40,8 +40,8 @@ export class PostsPage implements OnInit {
     this.postService.getPosts(this.user.id).subscribe(response => {
       if (response.success) {
         this.posts = response.data
-        this.posts.forEach(p=>{
-          this.postLikeService.checkLike(this.user.id,p.id).subscribe(isLikeResponse=>{
+        this.posts.forEach(p => {
+          this.postLikeService.checkLike(this.user.id, p.id).subscribe(isLikeResponse => {
             p.isClickHeart = isLikeResponse.success;
           })
         })
@@ -129,6 +129,7 @@ export class PostsPage implements OnInit {
   async openCommentModal(post: PostModel) {
     const modal = await this.modalController.create({
       component: CommentsPage,
+      swipeToClose: true,
       componentProps: {
         postComments: post.postComments,
         postId: post.id
