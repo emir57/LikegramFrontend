@@ -88,9 +88,9 @@ export class PostsPage implements OnInit {
     })
   }
 
-  postComment(post: PostModel) {
+  async postComment(post: PostModel) {
     post.isClickComment = true;
-    this.openCommentModal(post)
+    await this.openCommentModal(post)
   }
 
   postSend() {
