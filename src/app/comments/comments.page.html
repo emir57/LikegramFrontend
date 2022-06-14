@@ -19,11 +19,11 @@
         <span class="comment-card-username">{{comment.user.username}}</span>&nbsp;{{comment.comment}}
       </div>
       <div>
-        <a (click)="commentLike(comment)">
+        <a style="font-size: 20px;" (click)="commentLike(comment)">
           <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_1" *ngIf="!comment.isClickHeart"
             name="heart-outline">
           </ion-icon>
-          <ion-icon style="transition: font-size .5s;" id="commentike{{comment.id}}_2" *ngIf="comment.isClickHeart"
+          <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_2" *ngIf="comment.isClickHeart"
             class="text-danger" name="heart"></ion-icon>
         </a>
       </div>

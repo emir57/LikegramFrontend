@@ -107,16 +107,17 @@ export class CommentsPage implements OnInit {
   }
 
   commentLike(comment: PostCommentModel) {
+    let fontSize = "20px";
     if (comment.isClickHeart) {
       comment.isClickHeart = false;
       setTimeout(() => {
         $("#commentlike" + comment.id + "_1").animate({
-          fontSize: "30px",
+          fontSize: fontSize,
           opacity: 0
         }, 0)
         setTimeout(() => {
           $("#commentlike" + comment.id + "_1").animate({
-            fontSize: "30px",
+            fontSize: fontSize,
             opacity: 1
           })
         }, 200);
@@ -126,12 +127,12 @@ export class CommentsPage implements OnInit {
       comment.isClickHeart = true;
       setTimeout(() => {
         $("#commentlike" + comment.id + "_2").animate({
-          fontSize: "30px",
+          fontSize: fontSize,
           opacity: 0
         }, 0)
         setTimeout(() => {
           $("#commentlike" + comment.id + "_2").animate({
-            fontSize: "30px",
+            fontSize: fontSize,
             opacity: 1
           })
         }, 200);
