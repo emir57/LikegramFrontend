@@ -43,8 +43,8 @@ export class LoginPage implements OnInit {
       let loginModel = this.loginForm.value;
       this.authService.login(loginModel).subscribe(async response => {
         if (response.success) {
-          await this.storageService.setName(KeyType.User, JSON.stringify(response.data.user));
-          await this.storageService.setName(KeyType.Token, JSON.stringify(response.data.accessToken));
+          await this.storageService.setValue(KeyType.User, JSON.stringify(response.data.user));
+          await this.storageService.setValue(KeyType.Token, JSON.stringify(response.data.accessToken));
           console.log(response)
           this.messageService.showSuccessAlert("Giriş Başarılı", { iconType: SwalIconType.Success });
           setTimeout(async () => {
