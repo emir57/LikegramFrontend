@@ -6,4 +6,14 @@
   background-size: cover;
   border-radius: 50%;
 }
-
+.comment-card{
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  height: auto;
+}
+.comment-card > div:first-child{
+  height: 100%;
+  width: 25%;
+  background: red;
+}
