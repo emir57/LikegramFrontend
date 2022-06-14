@@ -69,8 +69,8 @@ export class CommentsPage implements OnInit {
     delete addedAnswer.user;
     addedAnswer.userId = this.user.id;
     addedAnswer.postCommentId = comment.id;
-    this.answerService.add(addedAnswer).subscribe(response=>{
-      if(response.success){
+    this.answerService.add(addedAnswer).subscribe(response => {
+      if (response.success) {
         this.messageService.showSuccessAlert("Başarıılı", { iconType: SwalIconType.Success })
       }
     })
@@ -103,7 +103,40 @@ export class CommentsPage implements OnInit {
 
   getDate(dateString: string) {
     let date = new Date(dateString);
-    return `${date.getDate()}.${date.getMonth()+1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+  }
+
+  commentLike(comment: PostCommentModel) {
+    if (comment.isClickHeart) {
+      comment.isClickHeart = false;
+      setTimeout(() => {
+        $("#postlike" + comment.id + "_1").animate({
+          fontSize: "30px",
+          opacity: 0
+        }, 0)
+        setTimeout(() => {
+          $("#postlike" + comment.id + "_1").animate({
+            fontSize: "30px",
+            opacity: 1
+          })
+        }, 200);
+      }, 100);
+    }
+    else {
+      comment.isClickHeart = true;
+      setTimeout(() => {
+        $("#postlike" + comment.id + "_2").animate({
+          fontSize: "30px",
+          opacity: 0
+        }, 0)
+        setTimeout(() => {
+          $("#postlike" + comment.id + "_2").animate({
+            fontSize: "30px",
+            opacity: 1
+          })
+        }, 200);
+      }, 100);
+    }
   }
 
 }

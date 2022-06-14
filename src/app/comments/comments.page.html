@@ -19,7 +19,7 @@
         <span class="comment-card-username">{{comment.user.username}}</span>&nbsp;{{comment.comment}}
       </div>
       <div>
-        <a>
+        <a (click)="commentLike(comment)">
           <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_1" *ngIf="!comment.isClickHeart"
             name="heart-outline">
           </ion-icon>
