@@ -8,5 +8,4 @@ export interface CommentAnswerModel {
   createdDate: string;
   userId?: number;
   postCommentId?: number;
-  isClickHeart?: boolean;
 }

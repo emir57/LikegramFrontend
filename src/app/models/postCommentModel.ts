@@ -9,4 +9,5 @@ export interface PostCommentModel {
   createdDate: string;
   userId?: number;
   postId?: number;
+  isClickHeart?: boolean;
 }
