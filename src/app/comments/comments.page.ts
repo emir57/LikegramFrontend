@@ -5,6 +5,7 @@ import { PostCommentModel } from '../models/postCommentModel';
 import { UserModel } from '../models/userModel';
 import { AnswerService } from '../services/answer.service';
 import { Usermodel } from '../services/auth.service';
+import { CommentLikeService } from '../services/comment-like.service';
 import { CommentService } from '../services/comment.service';
 import { LoadingService } from '../services/loading.service';
 import { KeyType, StorageService } from '../services/storage.service';
@@ -28,19 +29,24 @@ export class CommentsPage implements OnInit {
     private commentService: CommentService,
     private messageService: SwalService,
     private answerService: AnswerService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private commentLikeService: CommentLikeService
   ) { }
 
 
   async ngOnInit() {
+    await this.getUser();
     await this.getComments();
-    this.getUser();
   }
   async getComments() {
     await this.loadingService.showLoader("yükleniyor");
     this.commentService.getCommentsByPost(this.postId).subscribe(async response => {
       this.postComments = response.data;
-      console.log(this.postComments)
+      this.postComments.forEach(c => {
+        this.commentLikeService.checkLike(c.id, this.user.id).subscribe(isLikeResponse => {
+          c.isClickHeart = isLikeResponse.success;
+        })
+      })
       this.sortComments();
       await this.loadingService.closeLoader();
     }, async responseErr => {
