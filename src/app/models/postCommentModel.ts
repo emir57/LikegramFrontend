@@ -1,4 +1,5 @@
 import { CommentAnswerModel } from "./commentAnswerModel";
+import { CommentLikeModel } from "./commentLikeModel";
 import { UserModel } from "./userModel";
 
 export interface PostCommentModel {
@@ -6,6 +7,7 @@ export interface PostCommentModel {
   user: UserModel;
   comment: string;
   commentAnswers: CommentAnswerModel[];
+  commentLikes?: CommentLikeModel[];
   createdDate: string;
   userId?: number;
   postId?: number;
