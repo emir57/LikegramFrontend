@@ -47,7 +47,6 @@ export class CommentsPage implements OnInit {
           c.isClickHeart = isLikeResponse.success;
         })
       })
-      console.log(this.postComments)
       this.sortComments();
       await this.loadingService.closeLoader();
     }, async responseErr => {
