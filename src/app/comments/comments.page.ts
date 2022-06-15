@@ -126,36 +126,37 @@ export class CommentsPage implements OnInit {
 
   commentLike(comment: PostCommentModel) {
     let fontSize = "20px";
-    if (comment.isClickHeart) {
-      comment.isClickHeart = false;
-      setTimeout(() => {
-        $("#commentlike" + comment.id + "_1").animate({
-          fontSize: fontSize,
-          opacity: 0
-        }, 0)
+    this.commentLikeService.likeOrUnlike(comment.id, this.user.id).subscribe(async response => {
+      if (response.success) {
+        comment.isClickHeart = false;
         setTimeout(() => {
           $("#commentlike" + comment.id + "_1").animate({
             fontSize: fontSize,
-            opacity: 1
-          })
-        }, 200);
-      }, 100);
-    }
-    else {
-      comment.isClickHeart = true;
-      setTimeout(() => {
-        $("#commentlike" + comment.id + "_2").animate({
-          fontSize: fontSize,
-          opacity: 0
-        }, 0)
+            opacity: 0
+          }, 0)
+          setTimeout(() => {
+            $("#commentlike" + comment.id + "_1").animate({
+              fontSize: fontSize,
+              opacity: 1
+            })
+          }, 200);
+        }, 100);
+      } else {
+        comment.isClickHeart = true;
         setTimeout(() => {
           $("#commentlike" + comment.id + "_2").animate({
             fontSize: fontSize,
-            opacity: 1
-          })
-        }, 200);
-      }, 100);
-    }
+            opacity: 0
+          }, 0)
+          setTimeout(() => {
+            $("#commentlike" + comment.id + "_2").animate({
+              fontSize: fontSize,
+              opacity: 1
+            })
+          }, 200);
+        }, 100);
+      }
+    })
   }
 
 }
