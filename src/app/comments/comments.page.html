@@ -12,20 +12,22 @@
 <ion-content>
   <div style="height: 93%;width: 100%;overflow-y: scroll;overflow-x: hidden;">
     <div *ngFor="let comment of postComments" class="comment-card mb-3 p-2">
-      <div class="col-md-12 mb-4" style="display: flex;justify-content: start;align-items: center;">
-        <img [src]="baseUrl+comment.user.profilePhoto" class="post_kullanici_photo" alt="...">
-      </div>
       <div>
-        <span class="comment-card-username">{{comment.user.username}}</span>&nbsp;{{comment.comment}}
-      </div>
-      <div>
-        <a style="font-size: 20px;" (click)="commentLike(comment)">
-          <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_1" *ngIf="!comment.isClickHeart"
-            name="heart-outline">
-          </ion-icon>
-          <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_2" *ngIf="comment.isClickHeart"
-            class="text-danger" name="heart"></ion-icon>
-        </a>
+        <div class="col-md-12 mb-4" style="display: flex;justify-content: start;align-items: center;">
+          <img [src]="baseUrl+comment.user.profilePhoto" class="post_kullanici_photo" alt="...">
+        </div>
+        <div>
+          <span class="comment-card-username">{{comment.user.username}}</span>&nbsp;{{comment.comment}}
+        </div>
+        <div>
+          <a style="font-size: 20px;" (click)="commentLike(comment)">
+            <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_1" *ngIf="!comment.isClickHeart"
+              name="heart-outline">
+            </ion-icon>
+            <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_2" *ngIf="comment.isClickHeart"
+              class="text-danger" name="heart"></ion-icon>
+          </a>
+        </div>
       </div>
     </div>
   </div>

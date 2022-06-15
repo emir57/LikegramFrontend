@@ -6,27 +6,34 @@
   background-size: cover;
   border-radius: 50%;
 }
-.comment-card{
+
+.comment-card {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
   height: auto;
+}
+
+.comment-card>div:first-child {
   display: flex;
   justify-content: start;
 }
-.comment-card > div:first-child{
+
+.comment-card>div:first-child>div:first-child {
   height: 100%;
   width: 15%;
 }
-.comment-card > div:nth-child(2){
+
+.comment-card>div:first-child>div:nth-child(2) {
   height: 100%;
   width: 75%;
 }
-.comment-card > div:nth-child(3){
+
+.comment-card>div:first-child>div:nth-child(3) {
   height: 100%;
   width: 10%;
 }
-.comment-card-username{
+
+.comment-card-username {
   font-weight: 700;
 }
-
