@@ -40,8 +40,8 @@ export class CommentsPage implements OnInit {
     await this.loadingService.showLoader("yükleniyor");
     this.commentService.getCommentsByPost(this.postId).subscribe(async response => {
       this.postComments = response.data;
+      console.log(this.postComments)
       this.sortComments();
-      this.sortAnswers();
       await this.loadingService.closeLoader();
     }, async responseErr => {
       await this.loadingService.closeLoader();
