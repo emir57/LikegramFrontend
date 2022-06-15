@@ -133,7 +133,6 @@ export class PostsPage implements OnInit {
       swipeToClose: true,
       cssClass: "custom-modal",
       componentProps: {
-        postComments: post.postComments,
         postId: post.id
       }
     })
