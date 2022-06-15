@@ -6,6 +6,7 @@ import { UserModel } from '../models/userModel';
 import { AnswerService } from '../services/answer.service';
 import { Usermodel } from '../services/auth.service';
 import { CommentService } from '../services/comment.service';
+import { LoadingService } from '../services/loading.service';
 import { KeyType, StorageService } from '../services/storage.service';
 import { SwalIconType, SwalService } from '../services/swal.service';
 declare var $: any
@@ -18,7 +19,7 @@ declare var $: any
 export class CommentsPage implements OnInit {
 
   user: UserModel;
-  @Input() postComments: PostCommentModel[];
+  postComments: PostCommentModel[];
   @Input() postId: number;
   constructor(
     private modalController: ModalController,
@@ -26,14 +27,25 @@ export class CommentsPage implements OnInit {
     private storageService: StorageService,
     private commentService: CommentService,
     private messageService: SwalService,
-    private answerService: AnswerService
+    private answerService: AnswerService,
+    private loadingService: LoadingService
   ) { }
 
 
-  ngOnInit() {
-    this.sortComments();
-    this.sortAnswers();
+  async ngOnInit() {
+    await this.getComments();
     this.getUser();
+  }
+  async getComments() {
+    await this.loadingService.showLoader("yükleniyor");
+    this.commentService.getCommentsByPost(this.postId).subscribe(async response => {
+      this.postComments = response.data;
+      this.sortComments();
+      this.sortAnswers();
+      await this.loadingService.closeLoader();
+    }, async responseErr => {
+      await this.loadingService.closeLoader();
+    })
   }
 
   sortComments() {
