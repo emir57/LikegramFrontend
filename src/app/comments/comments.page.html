@@ -32,7 +32,13 @@
       <div>
         <div></div>
         <div>{{getDate(comment.createdDate)}}</div>
-        <div>1 beğenme</div>
+        <div>
+          <ion-label color="danger">
+            <span *ngIf="comment.commentAnswers" color="danger">{{comment.commentAnswers.length}}</span>
+            <span *ngIf="!comment.commentAnswers" color="danger">0</span>
+            beğenme
+          </ion-label>
+        </div>
       </div>
     </div>
   </div>
