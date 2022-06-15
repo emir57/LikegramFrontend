@@ -21,6 +21,7 @@ export class CommentLikeService {
   }
 
   checkLike(commentId: number, userId: number) {
-
+    let newUrl = `${this.baseUrl}api/commentlikes/checklike?commentId=${commentId}&userId=${userId}`;
+    return this.http.get<ResponseModel>(newUrl)
   }
 }
