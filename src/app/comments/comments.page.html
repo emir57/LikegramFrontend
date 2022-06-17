@@ -82,8 +82,8 @@
       <!-- Answers End -->
     </div>
   </div>
-  <div style="height: 6.8%;width: 100%;display: flex;justify-content: start;align-items: center;">
-    <img width="65" height="65" style="border-radius: 50%;" [src]="baseUrl+user.profilePhoto" [alt]="user.username">
+  <div id="bottom-bar">
+    <img width="35" height="35" style="border-radius: 50%;" [src]="baseUrl+user.profilePhoto" [alt]="user.username">
     <ion-input id="doComment" style="width: 80%;"></ion-input>
     <ion-button style="width: 20%;" (click)="sendComment()" fill="clear" shape="round">
       <ion-icon name="send-outline"></ion-icon>
