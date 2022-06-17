@@ -85,11 +85,13 @@
     </div>
   </div>
   <div id="bottom-bar">
-    <div id="comment-answer-bar">
-
+    <div *ngIf="selectedComment" id="comment-answer-bar">
+      <span *ngIf="selectedComment">
+        {{selectedComment.user.username}} kullanıcısına yanıt veriliyor
+      </span>
     </div>
     <div>
-      <div>
+      <div *ngIf="user">
         <img width="35" height="35" style="border-radius: 50%;" [src]="baseUrl+user.profilePhoto" [alt]="user.username">
       </div>
       <div>
