@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { CommentAnswerModel } from '../models/commentAnswerModel';
-import { ResponseListModel, ResponseModel } from './auth.service';
+import { ResponseListModel, ResponseModel, ResponseSingleModel } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class AnswerService {
   }
   commentAnswersCount(commentId: number) {
     let url = `${this.baseUrl}api/answers/answerscount?commentId=${commentId}`;
-    return this.http.get<ResponseListModel<CommentAnswerModel>>(url);
+    return this.http.get<ResponseSingleModel<number>>(url);
   }
   add(commentModel: CommentAnswerModel) {
     let url = `${this.baseUrl}api/answers/add`;
