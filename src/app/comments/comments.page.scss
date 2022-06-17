@@ -72,6 +72,10 @@
   align-items: center;
 }
 
+.comment-card>div:nth-child(3){
+  margin-left: 15%;
+}
+
 .comment-card-username {
   font-weight: 700;
 }
