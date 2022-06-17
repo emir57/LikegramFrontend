@@ -92,7 +92,7 @@
       <span *ngIf="selectedComment">
         {{selectedComment.user.username}} kullanıcısına yanıt veriliyor
       </span>
-      <span>
+      <span (click)="removeSelectedComment()">
         <ion-icon name="close-outline"></ion-icon>
       </span>
     </div>
