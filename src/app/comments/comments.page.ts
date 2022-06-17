@@ -19,6 +19,7 @@ declare var $: any
 })
 export class CommentsPage implements OnInit {
 
+  selectedComment: PostCommentModel = undefined;
   user: UserModel;
   postComments: PostCommentModel[];
   @Input() postId: number;
