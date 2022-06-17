@@ -128,7 +128,7 @@
 #bottom-bar>#comment-answer-bar {
   position: absolute;
   width: 100%;
-  height: 40px;
+  height: auto;
   background-color: #A6ACAF;
   color: #fff;
   bottom: 7%;
@@ -139,6 +139,7 @@
 }
 
 #bottom-bar>#comment-answer-bar>span:last-child {
+  padding: 0;
   margin-left: auto;
   font-size: 25px;
   margin-right: 3%;
