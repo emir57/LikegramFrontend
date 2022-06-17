@@ -83,11 +83,17 @@
     </div>
   </div>
   <div id="bottom-bar">
-    <img width="35" height="35" style="border-radius: 50%;" [src]="baseUrl+user.profilePhoto" [alt]="user.username">
-    <ion-input id="doComment" style="width: 80%;"></ion-input>
-    <ion-button style="width: 20%;" (click)="sendComment()" fill="clear" shape="round">
-      <ion-icon name="send-outline"></ion-icon>
-    </ion-button>
+    <div>
+      <img width="35" height="35" style="border-radius: 50%;" [src]="baseUrl+user.profilePhoto" [alt]="user.username">
+    </div>
+    <div>
+      <ion-input id="doComment" style="width: 80%;"></ion-input>
+    </div>
+    <div>
+      <ion-button style="width: 20%;" (click)="sendComment()" fill="clear" shape="round">
+        <ion-icon name="send-outline"></ion-icon>
+      </ion-button>
+    </div>
   </div>
 
 </ion-content>
