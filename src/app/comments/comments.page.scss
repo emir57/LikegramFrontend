@@ -67,6 +67,11 @@
   color: #A6ACAF;
 }
 
+.comment-card>div:nth-child(2)>div:nth-child(2)>span {
+  display: flex;
+  align-items: center;
+}
+
 .comment-card-username {
   font-weight: 700;
 }
