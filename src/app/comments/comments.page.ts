@@ -75,6 +75,11 @@ export class CommentsPage implements OnInit {
 
   sendComment() {
     let today = new Date();
+    if (this.selectedComment) {
+      this.doAnswer(today);
+    } else {
+      this.doComment(today);
+    }
   }
 
   doComment(today: Date) {
