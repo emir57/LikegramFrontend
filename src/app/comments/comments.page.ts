@@ -127,8 +127,10 @@ export class CommentsPage implements OnInit {
   getAnswers(comment: PostCommentModel) {
     if (comment.isClickShowAnswer) {
       comment.isClickShowAnswer = false;
+      //todo: hide answers
     } else {
       comment.isClickShowAnswer = true;
+      //todo: get answers
     }
   }
 
