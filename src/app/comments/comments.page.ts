@@ -184,9 +184,11 @@ export class CommentsPage implements OnInit {
   }
 
   selectComment(comment: PostCommentModel) {
+    $("#comment" + comment.id).addClass("bg-warning");
     this.selectedComment = comment;
   }
   removeSelectedComment() {
+    $("#comment" + this.selectedComment.id).removeClass("bg-warning");
     this.selectedComment = undefined;
   }
 
