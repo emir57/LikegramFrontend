@@ -75,6 +75,9 @@ export class CommentsPage implements OnInit {
 
   sendComment() {
     let today = new Date();
+  }
+
+  doComment(today: Date) {
     let comment = $("#doComment").val();
     if (!comment) return;
     let commentModel: PostCommentModel = {
@@ -95,16 +98,11 @@ export class CommentsPage implements OnInit {
     delete addedComment.createdDate;
     this.commentService.add(addedComment).subscribe(response => {
       if (response.success) {
-        this.messageService.showSuccessAlert("Yorum yapma Başarıılı", { iconType: SwalIconType.Success })
+        this.messageService.showSuccessAlert("Yorum yapma Başarılı", { iconType: SwalIconType.Success })
       }
     }, responseErr => console.log(responseErr))
   }
-
-  doComment() {
-
-  }
-  doAnswer() {
-    let today = new Date();
+  doAnswer(today: Date) {
     let answer = $("#doComment").val();
     let answerModel: CommentAnswerModel = {
       answer: answer,
