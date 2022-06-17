@@ -183,4 +183,11 @@ export class CommentsPage implements OnInit {
     })
   }
 
+  selectComment(comment: PostCommentModel) {
+    this.selectedComment = comment;
+  }
+  removeSelectedComment() {
+    this.selectComment = undefined;
+  }
+
 }
