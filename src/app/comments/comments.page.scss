@@ -94,8 +94,12 @@
   margin: 6px;
 }
 
+#bottom-bar>div:nth-child(1) {
+  width: 10%;
+}
+
 #bottom-bar>div:nth-child(2) {
-  width: 80%;
+  width: 70%;
 }
 
 #bottom-bar>div:nth-child(3) {
