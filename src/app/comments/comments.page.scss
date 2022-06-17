@@ -39,6 +39,7 @@
   padding: 0 7px 0 7px;
   font-size: 13px;
 }
+
 .comment-card>div:first-child>div:nth-child(2)>div:nth-child(2)>div:nth-child(3) {
   padding: 0 7px 0 7px;
   font-size: 13px;
@@ -49,7 +50,11 @@
   width: 10%;
 }
 
-.comment-card > div:nth-child(2){
+.comment-card>div:nth-child(2)>div:first-child {
+  padding-left: 15%;
+}
+
+.comment-card>div:nth-child(2)>div:nth-child(2) {
   padding-left: 25%;
 }
 
