@@ -12,6 +12,7 @@
 <ion-content>
   <div style="height: 93%;width: 100%;overflow-y: scroll;overflow-x: hidden;">
     <div *ngFor="let comment of postComments" class="comment-card mb-3 p-2">
+      <!-- Comment Body Start -->
       <div>
         <div class="col-md-12 mb-4" style="display: flex;justify-content: start;align-items: center;">
           <img [src]="baseUrl+comment.user.profilePhoto" class="post_kullanici_photo" alt="...">
@@ -42,6 +43,8 @@
           </a>
         </div>
       </div>
+      <!-- Comment Body End -->
+      <!-- Show answer buttons Start -->
       <div>
         <div></div>
         <div>
@@ -53,6 +56,7 @@
           </span>
         </div>
       </div>
+      <!-- Show answer buttons End -->
       <!-- Answers Start -->
       <div>
         <div *ngFor="let answer of comment.commentAnswers" class="comment-card">
