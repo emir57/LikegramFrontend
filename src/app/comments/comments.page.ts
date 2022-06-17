@@ -46,6 +46,9 @@ export class CommentsPage implements OnInit {
         this.commentLikeService.checkLike(c.id, this.user.id).subscribe(isLikeResponse => {
           c.isClickHeart = isLikeResponse.success;
         })
+        this.answerService.commentAnswersCount(c.id).subscribe(response => {
+          c.commentAnswersCount = response.data;
+        })
       })
       this.sortComments();
       await this.loadingService.closeLoader();
@@ -132,8 +135,8 @@ export class CommentsPage implements OnInit {
     } else {
       comment.isClickShowAnswer = true;
       //todo: get answers
-      this.answerService.getAnswersByCommentId(comment.id).subscribe(async response=>{
-        if(response.success){
+      this.answerService.getAnswersByCommentId(comment.id).subscribe(async response => {
+        if (response.success) {
           comment.commentAnswers = response.data;
         }
       })
