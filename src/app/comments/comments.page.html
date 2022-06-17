@@ -87,10 +87,10 @@
       <img width="35" height="35" style="border-radius: 50%;" [src]="baseUrl+user.profilePhoto" [alt]="user.username">
     </div>
     <div>
-      <ion-input id="doComment" style="width: 80%;"></ion-input>
+      <ion-input id="doComment"></ion-input>
     </div>
     <div>
-      <ion-button style="width: 20%;" (click)="sendComment()" fill="clear" shape="round">
+      <ion-button (click)="sendComment()" fill="clear" shape="round">
         <ion-icon name="send-outline"></ion-icon>
       </ion-button>
     </div>
