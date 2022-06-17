@@ -99,6 +99,7 @@ export class CommentsPage implements OnInit {
   sendComment() {
     let today = new Date();
     let comment = $("#doComment").val();
+    if (!comment) return;
     let commentModel: PostCommentModel = {
       postId: this.postId,
       userId: this.user.id,
