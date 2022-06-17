@@ -131,6 +131,11 @@ export class CommentsPage implements OnInit {
     } else {
       comment.isClickShowAnswer = true;
       //todo: get answers
+      this.answerService.getAnswersByCommentId(comment.id).subscribe(async response=>{
+        if(response.success){
+          console.log(response)
+        }
+      })
     }
   }
 
