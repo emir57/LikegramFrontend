@@ -185,11 +185,11 @@ export class CommentsPage implements OnInit {
 
   selectComment(comment: PostCommentModel) {
     if (this.selectedComment) this.removeSelectedComment();
-    $("#comment" + comment.id).addClass("bg-warning");
+    $("#comment" + comment.id).addClass("bg-warning text-white");
     this.selectedComment = comment;
   }
   removeSelectedComment() {
-    $("#comment" + this.selectedComment.id).removeClass("bg-warning");
+    $("#comment" + this.selectedComment.id).removeClass("bg-warning text-white");
     this.selectedComment = undefined;
   }
 
