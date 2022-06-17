@@ -88,3 +88,12 @@
   align-items: center;
   padding: 9px;
 }
+
+#bottom-bar>div {
+  display: inline-block;
+  margin: 6px;
+}
+
+#bottom-bar>div:nth-child(2) {
+  width: 80%;
+}
