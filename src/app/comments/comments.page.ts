@@ -124,6 +124,14 @@ export class CommentsPage implements OnInit {
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
   }
 
+  getAnswers(comment: PostCommentModel) {
+    if (comment.isClickShowAnswer) {
+      comment.isClickShowAnswer = false;
+    } else {
+      comment.isClickShowAnswer = true;
+    }
+  }
+
   commentLike(comment: PostCommentModel) {
     let fontSize = "20px";
     this.commentLikeService.likeOrUnlike(comment.id, this.user.id).subscribe(async response => {
