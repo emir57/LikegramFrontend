@@ -73,30 +73,6 @@ export class CommentsPage implements OnInit {
     this.modalController.dismiss();
   }
 
-  doAnswer(comment: PostCommentModel) {
-    let today = new Date();
-
-    let answer = $("#doAnswer" + comment.id).val();
-    let answerModel: CommentAnswerModel = {
-      answer: answer,
-      createdDate: (new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes())).toString(),
-      user: this.user,
-      id: 1
-    }
-    comment.commentAnswers.push(answerModel);
-    this.sortAnswers();
-    let addedAnswer = Object.assign({}, answerModel);
-    delete addedAnswer.createdDate;
-    delete addedAnswer.id;
-    delete addedAnswer.user;
-    addedAnswer.userId = this.user.id;
-    addedAnswer.postCommentId = comment.id;
-    this.answerService.add(addedAnswer).subscribe(response => {
-      if (response.success) {
-        this.messageService.showSuccessAlert("Başarıılı", { iconType: SwalIconType.Success })
-      }
-    })
-  }
   sendComment() {
     let today = new Date();
     let comment = $("#doComment").val();
@@ -124,9 +100,30 @@ export class CommentsPage implements OnInit {
     }, responseErr => console.log(responseErr))
   }
 
-  getDate(dateString: string) {
-    let date = new Date(dateString);
-    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+  doComment() {
+
+  }
+  doAnswer() {
+    let today = new Date();
+    let answer = $("#doComment").val();
+    let answerModel: CommentAnswerModel = {
+      answer: answer,
+      createdDate: (new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes())).toString(),
+      user: this.user,
+      id: 1
+    }
+    let addedAnswer = Object.assign({}, answerModel);
+    delete addedAnswer.createdDate;
+    delete addedAnswer.id;
+    delete addedAnswer.user;
+    addedAnswer.userId = this.user.id;
+    addedAnswer.postCommentId = this.selectedComment.id;
+    this.answerService.add(addedAnswer).subscribe(response => {
+      if (response.success) {
+        this.messageService.showSuccessAlert("yanıtlama başarılı", { iconType: SwalIconType.Success })
+        this.removeSelectedComment();
+      }
+    })
   }
 
   getAnswers(comment: PostCommentModel) {
@@ -191,6 +188,11 @@ export class CommentsPage implements OnInit {
   removeSelectedComment() {
     $("#comment" + this.selectedComment.id).removeClass("bg-warning text-white");
     this.selectedComment = undefined;
+  }
+
+  getDate(dateString: string) {
+    let date = new Date(dateString);
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
   }
 
 }
