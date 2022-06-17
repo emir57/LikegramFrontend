@@ -33,6 +33,7 @@
             </div>
           </div>
         </div>
+        <!-- Like Button Start -->
         <div>
           <a style="font-size: 20px;" (click)="commentLike(comment)">
             <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_1" *ngIf="!comment.isClickHeart"
@@ -42,6 +43,7 @@
               class="text-danger" name="heart"></ion-icon>
           </a>
         </div>
+        <!-- Like Button End -->
       </div>
       <!-- Comment Body End -->
       <!-- Show answer buttons Start -->
