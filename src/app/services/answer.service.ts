@@ -17,6 +17,10 @@ export class AnswerService {
     let url = `${this.baseUrl}api/answers/getbycommentid?commentId=${commentId}`;
     return this.http.get<ResponseListModel<CommentAnswerModel>>(url);
   }
+  commentAnswersCount(commentId: number) {
+    let url = `${this.baseUrl}api/answers/answerscount?commentId=${commentId}`;
+    return this.http.get<ResponseListModel<CommentAnswerModel>>(url);
+  }
   add(commentModel: CommentAnswerModel) {
     let url = `${this.baseUrl}api/answers/add`;
     return this.http.post<ResponseModel>(url, commentModel);
