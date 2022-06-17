@@ -17,7 +17,20 @@
           <img [src]="baseUrl+comment.user.profilePhoto" class="post_kullanici_photo" alt="...">
         </div>
         <div>
-          <span class="comment-card-username">{{comment.user.username}}</span>&nbsp;{{comment.comment}}
+          <div>
+            <span class="comment-card-username">{{comment.user.username}}</span>&nbsp;{{comment.comment}}
+          </div>
+          <div>
+            <div></div>
+            <div>{{getDate(comment.createdDate)}}</div>
+            <div>
+              <ion-label color="danger">
+                <span *ngIf="comment.commentLikes" color="danger">{{comment.commentLikes.length}}</span>
+                <span *ngIf="!comment.commentLikes" color="danger">0</span>
+                beğenme
+              </ion-label>
+            </div>
+          </div>
         </div>
         <div>
           <a style="font-size: 20px;" (click)="commentLike(comment)">
@@ -27,17 +40,6 @@
             <ion-icon style="transition: font-size .5s;" id="commentlike{{comment.id}}_2" *ngIf="comment.isClickHeart"
               class="text-danger" name="heart"></ion-icon>
           </a>
-        </div>
-      </div>
-      <div>
-        <div></div>
-        <div>{{getDate(comment.createdDate)}}</div>
-        <div>
-          <ion-label color="danger">
-            <span *ngIf="comment.commentLikes" color="danger">{{comment.commentLikes.length}}</span>
-            <span *ngIf="!comment.commentLikes" color="danger">0</span>
-            beğenme
-          </ion-label>
         </div>
       </div>
     </div>
