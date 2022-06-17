@@ -14,7 +14,7 @@ export class AnswerService {
   ) { }
 
   getAnswersByCommentId(commentId: number) {
-    let url = `${this.baseUrl}/api/answers/getbycommentid?id=${commentId}`;
+    let url = `${this.baseUrl}/api/answers/getbycommentid?commentId=${commentId}`;
     return this.http.get<ResponseListModel<CommentAnswerModel>>(url);
   }
   add(commentModel: CommentAnswerModel) {
