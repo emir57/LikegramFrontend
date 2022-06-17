@@ -12,4 +12,5 @@ export interface PostCommentModel {
   userId?: number;
   postId?: number;
   isClickHeart?: boolean;
+  isClickShowAnswer?: boolean;
 }
