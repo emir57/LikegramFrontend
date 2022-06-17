@@ -83,6 +83,9 @@
 #bottom-bar {
   height: 6.8%;
   width: 100%;
+  border-top: 1px solid #D7DBDD;
+  display: flex;
+  align-items: center;
 }
 
 #bottom-bar>div:last-child {
