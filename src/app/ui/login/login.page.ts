@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
           await this.storageService.setValue(KeyType.User, JSON.stringify(response.data.user));
           await this.storageService.setValue(KeyType.Token, JSON.stringify(response.data.accessToken));
           console.log(response)
-          this.messageService.showSuccessAlert("Giriş Başarılı", { iconType: SwalIconType.Success });
+          this.messageService.showSuccessAlert("Giriş Başarılı");
           setTimeout(async () => {
             await this.loadingService.closeLoader();
             this.isLoad = true;
@@ -55,12 +55,12 @@ export class LoginPage implements OnInit {
             this.router.navigateByUrl("/home/posts")
           }, 1500);
         } else {
-          this.messageService.showSuccessAlert("Bir hata oluştu", { iconType: SwalIconType.Error });
+          this.messageService.showErrorAlert("Bir hata oluştu");
           await this.loadingService.closeLoader();
           this.isLoad = true;
         }
       }, async responseErr => {
-        this.messageService.showSuccessAlert(responseErr.error.message, { iconType: SwalIconType.Error });
+        this.messageService.showErrorAlert(responseErr.error.message);
         await this.loadingService.closeLoader();
         this.isLoad = true;
         if (responseErr.error.message === "Lütfen eposta adresinizi onaylayınız") {
