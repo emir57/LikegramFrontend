@@ -69,7 +69,7 @@ export class CommentsPage implements OnInit {
     this.modalController.dismiss();
   }
 
-  sendComment() {
+  sendCommentOrAnswer() {
     let today = new Date();
     if (this.selectedComment) {
       this.doAnswer(today);
