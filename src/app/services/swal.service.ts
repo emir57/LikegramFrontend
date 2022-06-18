@@ -18,6 +18,17 @@ export class SwalService {
     })
   }
 
+  showErrorAlert(title: string, options: Partial<SwalOptions>) {
+    if (!options.position) {
+      options.position = SwalPositionType.TopEnd
+    }
+    const Toast = this.setToast(options);
+    Toast.fire({
+      icon: options.iconType ?? SwalIconType.Error,
+      title: title
+    })
+  }
+
   private setToast(options: Partial<SwalOptions>) {
     return Swal.mixin({
       toast: true,
