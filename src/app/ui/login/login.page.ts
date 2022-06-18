@@ -46,7 +46,10 @@ export class LoginPage implements OnInit {
           await this.storageService.setValue(KeyType.User, JSON.stringify(response.data.user));
           await this.storageService.setValue(KeyType.Token, JSON.stringify(response.data.accessToken));
           console.log(response)
-          this.messageService.showSuccessAlert("Giriş Başarılı");
+          this.messageService.showSuccessAlert("Giriş Başarılı", {
+            timer: 5000,
+            iconType: SwalIconType.Info
+          });
           setTimeout(async () => {
             await this.loadingService.closeLoader();
             this.isLoad = true;
