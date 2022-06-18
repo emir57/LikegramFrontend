@@ -61,11 +61,7 @@ export class CommentsPage implements OnInit {
   sortComments() {
     this.postComments.sort((a, b) => (new Date(b.createdDate)).getTime() - (new Date(a.createdDate)).getTime())
   }
-  sortAnswers() {
-    this.postComments.forEach(comment => {
-      comment.commentAnswers.sort((a, b) => (new Date(a.createdDate)).getTime() - (new Date(b.createdDate)).getTime())
-    })
-  }
+
   async getUser() {
     this.user = JSON.parse(await this.storageService.getValue(KeyType.User));
   }
@@ -138,9 +134,14 @@ export class CommentsPage implements OnInit {
       this.answerService.getAnswersByCommentId(comment.id).subscribe(async response => {
         if (response.success) {
           comment.commentAnswers = response.data;
+          this.sortAnswers(comment);
         }
       })
     }
+  }
+
+  sortAnswers(comment: PostCommentModel) {
+    comment.commentAnswers.sort((a, b) => (new Date(b.createdDate)).getTime() - (new Date(a.createdDate)).getTime())
   }
 
   commentLike(comment: PostCommentModel) {
