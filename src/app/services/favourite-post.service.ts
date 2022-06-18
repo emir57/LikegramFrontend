@@ -10,4 +10,9 @@ export class FavouritePostService {
     @Inject("baseUrl") private baseUrl: string,
     private http: HttpClient
   ) { }
+
+  getListByUserId(userId: number) {
+    let url = `${this.baseUrl}api/favouriteposts/getfavouriteposts?userId=${userId}`;
+    return this.http.get<any>(url);
+  }
 }
