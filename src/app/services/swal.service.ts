@@ -15,7 +15,7 @@ export class SwalService {
       toast: true,
       position: options.position,
       showConfirmButton: false,
-      timer: 3000,
+      timer: options.timer ?? 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
