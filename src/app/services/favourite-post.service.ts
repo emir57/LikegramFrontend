@@ -25,4 +25,8 @@ export class FavouritePostService {
     let url = `${this.baseUrl}api/favouriteposts`;
     return this.http.post<ResponseModel>(url, favouritePost);
   }
+  updateFavouritePost(favouritePost: FavouritePostModel) {
+    let url = `${this.baseUrl}api/favouriteposts`;
+    return this.http.put<ResponseModel>(url, favouritePost);
+  }
 }
