@@ -11,7 +11,15 @@ export class SwalService {
     if (!options.position) {
       options.position = SwalPositionType.TopEnd
     }
-    const Toast = Swal.mixin({
+    const Toast = this.setToast(options);
+    Toast.fire({
+      icon: options.iconType ?? SwalIconType.Success,
+      title: title
+    })
+  }
+
+  private setToast(options: Partial<SwalOptions>) {
+    return Swal.mixin({
       toast: true,
       position: options.position,
       showConfirmButton: false,
@@ -22,12 +30,11 @@ export class SwalService {
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
     })
-    Toast.fire({
-      icon: options.iconType ?? SwalIconType.Success,
-      title: title
-    })
   }
+
 }
+
+
 
 export class SwalOptions {
   position: SwalPositionType;
