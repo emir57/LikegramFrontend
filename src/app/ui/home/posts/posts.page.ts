@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { CommentsPage } from 'src/app/comments/comments.page';
 import { PostModel } from 'src/app/models/postModel';
 import { Usermodel } from 'src/app/services/auth.service';
+import { FavouritePostService } from 'src/app/services/favourite-post.service';
 import { PostLikeService } from 'src/app/services/post-like.service';
 import { PostService } from 'src/app/services/post.service';
 import { KeyType, StorageService } from 'src/app/services/storage.service';
@@ -24,7 +25,8 @@ export class PostsPage implements OnInit {
     private postService: PostService,
     @Inject("baseUrl") public baseUrl: string,
     private modalController: ModalController,
-    private postLikeService: PostLikeService
+    private postLikeService: PostLikeService,
+    private favouritePostService: FavouritePostService
   ) { }
 
   ngOnInit() {
