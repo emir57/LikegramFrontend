@@ -98,7 +98,8 @@
     </div>
     <div>
       <div *ngIf="user">
-        <img width="35" height="35" style="border-radius: 50%;" [src]="baseUrl+user.profilePhoto" [alt]="user.username">
+        <img style="border-radius: 50%;width:35px;height: 35px;" [src]="baseUrl+user.profilePhoto"
+          [alt]="user.username">
       </div>
       <div>
         <ion-input id="doComment"></ion-input>
