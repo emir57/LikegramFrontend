@@ -23,11 +23,12 @@ export class SwalService {
       }
     })
     Toast.fire({
-      icon: options.iconType,
+      icon: options.iconType ?? SwalIconType.Success,
       title: title
     })
   }
 }
+
 export class SwalOptions {
   position: SwalPositionType;
   iconType: SwalIconType;
