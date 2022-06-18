@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
+import { FavouritePostModel } from '../models/favouritePostModel';
+import { ResponseListModel } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,6 @@ export class FavouritePostService {
 
   getListByUserId(userId: number) {
     let url = `${this.baseUrl}api/favouriteposts/getfavouriteposts?userId=${userId}`;
-    return this.http.get<any>(url);
+    return this.http.get<ResponseListModel<FavouritePostModel>>(url);
   }
 }
