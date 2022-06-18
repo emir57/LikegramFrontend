@@ -33,4 +33,12 @@ export class FavouritePostService {
     let url = `${this.baseUrl}api/favouriteposts?id=${favouritePostId}`;
     return this.http.delete<ResponseModel>(url);
   }
+
+  deleteOrAdd(userId: number, postId: number) {
+    let url = `${this.baseUrl}api/favouriteposts/deleteoradd`;
+    return this.http.post<ResponseModel>(url, {
+      userId: userId,
+      postId: postId
+    });
+  }
 }
