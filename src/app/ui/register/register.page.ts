@@ -34,29 +34,29 @@ export class RegisterPage implements OnInit {
     }, { validators: this.checkPasswords })
   }
 
-  register() {
+  async register() {
     if (this.registerForm.valid) {
       let registerModel = this.registerForm.value;
       delete registerModel.rePassword;
       this.isLoad = false;
-      this.loadingService.showLoader("Kayıt işlemi yapılıyor");
-      this.authService.register(registerModel).subscribe(response => {
+      await this.loadingService.showLoader("Kayıt işlemi yapılıyor");
+      this.authService.register(registerModel).subscribe(async response => {
         if (response.success) {
-          this.messageService.showSuccessAlert(response.message, { iconType: SwalIconType.Success });
+          this.messageService.showSuccessAlert(response.message);
           this.isLoad = true;
-          this.loadingService.closeLoader();
+          await this.loadingService.closeLoader();
           setTimeout(() => {
             this.router.navigateByUrl("/login");
           }, 500);
         } else {
           this.isLoad = true;
           this.loadingService.closeLoader();
-          this.messageService.showSuccessAlert(response.message, { iconType: SwalIconType.Error })
+          this.messageService.showSuccessAlert(response.message)
         }
       }, responseErr => {
         this.isLoad = true;
         this.loadingService.closeLoader();
-        this.messageService.showSuccessAlert(responseErr.error.message, { iconType: SwalIconType.Error })
+        this.messageService.showSuccessAlert(responseErr.error.message)
       })
     }
   }
