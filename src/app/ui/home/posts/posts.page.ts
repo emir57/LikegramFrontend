@@ -29,11 +29,9 @@ export class PostsPage implements OnInit {
     private favouritePostService: FavouritePostService
   ) { }
 
-  ngOnInit() {
-    this.getUser();
-    setTimeout(() => {
-      this.getPosts();
-    }, 500);
+  async ngOnInit() {
+    await this.getUser();
+    this.getPosts();
   }
   async getUser() {
     this.user = JSON.parse(await this.storageService.getValue(KeyType.User))
