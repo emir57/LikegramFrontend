@@ -30,7 +30,8 @@ export class SwalService {
 }
 export class SwalOptions {
   position: SwalPositionType;
-  iconType: SwalIconType
+  iconType: SwalIconType;
+  timer?: number = 3000;
 }
 export enum SwalPositionType {
   TopEnd = "top-end",
