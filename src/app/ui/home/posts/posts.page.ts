@@ -102,32 +102,36 @@ export class PostsPage implements OnInit {
   }
 
   postSave(post: PostModel) {
-    if (post.isClickBookmark) {
-      post.isClickBookmark = false;
-      setTimeout(() => {
-        $("#postsave" + post.id + "_1").animate({
-          opacity: 0
-        }, 0)
-        setTimeout(() => {
-          $("#postsave" + post.id + "_1").animate({
-            opacity: 1
-          })
-        }, 200);
-      }, 100);
-    }
-    else {
-      post.isClickBookmark = true;
-      setTimeout(() => {
-        $("#postsave" + post.id + "_2").animate({
-          opacity: 0
-        }, 0)
-        setTimeout(() => {
-          $("#postsave" + post.id + "_2").animate({
-            opacity: 1
-          })
-        }, 200);
-      }, 100);
-    }
+    this.favouritePostService.deleteOrAdd(this.user.id, post.id).subscribe(async response => {
+      if (response.success) {
+        if (post.isClickBookmark) {
+          post.isClickBookmark = false;
+          setTimeout(() => {
+            $("#postsave" + post.id + "_1").animate({
+              opacity: 0
+            }, 0)
+            setTimeout(() => {
+              $("#postsave" + post.id + "_1").animate({
+                opacity: 1
+              })
+            }, 200);
+          }, 100);
+        }
+        else {
+          post.isClickBookmark = true;
+          setTimeout(() => {
+            $("#postsave" + post.id + "_2").animate({
+              opacity: 0
+            }, 0)
+            setTimeout(() => {
+              $("#postsave" + post.id + "_2").animate({
+                opacity: 1
+              })
+            }, 200);
+          }, 100);
+        }
+      }
+    })
   }
 
   async openCommentModal(post: PostModel) {
