@@ -10,7 +10,7 @@ export class SwalService {
   showSuccessAlert(title: string, options?: Partial<SwalOptions>) {
     const Toast = this.setToast(options);
     Toast.fire({
-      icon: options.iconType ?? SwalIconType.Success,
+      icon: options ? options.iconType : SwalIconType.Success,
       title: title
     })
   }
@@ -18,7 +18,7 @@ export class SwalService {
   showErrorAlert(title: string, options?: Partial<SwalOptions>) {
     const Toast = this.setToast(options);
     Toast.fire({
-      icon: options.iconType ?? SwalIconType.Error,
+      icon: options ? options.iconType : SwalIconType.Error,
       title: title
     })
   }
@@ -26,7 +26,7 @@ export class SwalService {
   showWarningAlert(title: string, options?: Partial<SwalOptions>) {
     const Toast = this.setToast(options);
     Toast.fire({
-      icon: options.iconType ?? SwalIconType.Warning,
+      icon: options ? options.iconType : SwalIconType.Warning,
       title: title
     })
   }
@@ -34,7 +34,7 @@ export class SwalService {
   showInfoAlert(title: string, options?: Partial<SwalOptions>) {
     const Toast = this.setToast(options);
     Toast.fire({
-      icon: options.iconType ?? SwalIconType.Info,
+      icon: options ? options.iconType : SwalIconType.Info,
       title: title
     })
   }
@@ -42,9 +42,9 @@ export class SwalService {
   private setToast(options?: Partial<SwalOptions>) {
     return Swal.mixin({
       toast: true,
-      position: options.position ?? SwalPositionType.TopEnd,
+      position: options ? options.position : SwalPositionType.TopEnd,
       showConfirmButton: false,
-      timer: options.timer ?? 3000,
+      timer: options ? options.timer : 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
