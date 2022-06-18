@@ -8,9 +8,6 @@ export class SwalService {
   constructor() { }
 
   showSuccessAlert(title: string, options?: Partial<SwalOptions>) {
-    if (!options.position) {
-      options.position = SwalPositionType.TopEnd
-    }
     const Toast = this.setToast(options);
     Toast.fire({
       icon: options.iconType ?? SwalIconType.Success,
@@ -19,9 +16,6 @@ export class SwalService {
   }
 
   showErrorAlert(title: string, options?: Partial<SwalOptions>) {
-    if (!options.position) {
-      options.position = SwalPositionType.TopEnd
-    }
     const Toast = this.setToast(options);
     Toast.fire({
       icon: options.iconType ?? SwalIconType.Error,
@@ -30,9 +24,6 @@ export class SwalService {
   }
 
   showWarningAlert(title: string, options?: Partial<SwalOptions>) {
-    if (!options.position) {
-      options.position = SwalPositionType.TopEnd
-    }
     const Toast = this.setToast(options);
     Toast.fire({
       icon: options.iconType ?? SwalIconType.Warning,
@@ -41,9 +32,6 @@ export class SwalService {
   }
 
   showInfoAlert(title: string, options?: Partial<SwalOptions>) {
-    if (!options.position) {
-      options.position = SwalPositionType.TopEnd
-    }
     const Toast = this.setToast(options);
     Toast.fire({
       icon: options.iconType ?? SwalIconType.Info,
@@ -54,7 +42,7 @@ export class SwalService {
   private setToast(options?: Partial<SwalOptions>) {
     return Swal.mixin({
       toast: true,
-      position: options.position,
+      position: options.position ?? SwalPositionType.TopEnd,
       showConfirmButton: false,
       timer: options.timer ?? 3000,
       timerProgressBar: true,
