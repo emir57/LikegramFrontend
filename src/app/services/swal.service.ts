@@ -35,7 +35,19 @@ export class SwalService {
     }
     const Toast = this.setToast(options);
     Toast.fire({
-      icon: options.iconType ?? SwalIconType.Warning
+      icon: options.iconType ?? SwalIconType.Warning,
+      title: title
+    })
+  }
+
+  showInfoAlert(title: string, options: Partial<SwalOptions>) {
+    if (!options.position) {
+      options.position = SwalPositionType.TopEnd
+    }
+    const Toast = this.setToast(options);
+    Toast.fire({
+      icon: options.iconType ?? SwalIconType.Info,
+      title: title
     })
   }
 
