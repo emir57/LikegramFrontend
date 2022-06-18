@@ -7,7 +7,7 @@ export class SwalService {
 
   constructor() { }
 
-  showSuccessAlert(title: string, options: Partial<SwalOptions>) {
+  showSuccessAlert(title: string, options?: Partial<SwalOptions>) {
     if (!options.position) {
       options.position = SwalPositionType.TopEnd
     }
@@ -18,7 +18,7 @@ export class SwalService {
     })
   }
 
-  showErrorAlert(title: string, options: Partial<SwalOptions>) {
+  showErrorAlert(title: string, options?: Partial<SwalOptions>) {
     if (!options.position) {
       options.position = SwalPositionType.TopEnd
     }
@@ -29,7 +29,7 @@ export class SwalService {
     })
   }
 
-  showWarningAlert(title: string, options: Partial<SwalOptions>) {
+  showWarningAlert(title: string, options?: Partial<SwalOptions>) {
     if (!options.position) {
       options.position = SwalPositionType.TopEnd
     }
@@ -40,7 +40,7 @@ export class SwalService {
     })
   }
 
-  showInfoAlert(title: string, options: Partial<SwalOptions>) {
+  showInfoAlert(title: string, options?: Partial<SwalOptions>) {
     if (!options.position) {
       options.position = SwalPositionType.TopEnd
     }
@@ -51,7 +51,7 @@ export class SwalService {
     })
   }
 
-  private setToast(options: Partial<SwalOptions>) {
+  private setToast(options?: Partial<SwalOptions>) {
     return Swal.mixin({
       toast: true,
       position: options.position,
