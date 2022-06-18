@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavouritePostService {
 
-  constructor() { }
+  constructor(
+    @Inject("baseUrl") private baseUrl: string,
+    private http: HttpClient
+  ) { }
 }
