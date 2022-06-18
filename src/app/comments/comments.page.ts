@@ -132,11 +132,9 @@ export class CommentsPage implements OnInit {
   getAnswers(comment: PostCommentModel) {
     if (comment.isClickShowAnswer) {
       comment.isClickShowAnswer = false;
-      //todo: hide answers
       comment.commentAnswers = [];
     } else {
       comment.isClickShowAnswer = true;
-      //todo: get answers
       this.answerService.getAnswersByCommentId(comment.id).subscribe(async response => {
         if (response.success) {
           comment.commentAnswers = response.data;
