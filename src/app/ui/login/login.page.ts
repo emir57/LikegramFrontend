@@ -84,7 +84,7 @@ export class LoginPage implements OnInit {
         {
           name: 'key',
           type: 'text',
-          placeholder: 'Doğrlama kodu'
+          placeholder: 'Doğrulama kodu'
         },
       ],
       buttons: [
@@ -92,19 +92,17 @@ export class LoginPage implements OnInit {
           text: 'Kapat',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
+          handler: () => {}
         }, {
-          text: 'Doğrlua',
+          text: 'Doğrula',
           handler: (value) => {
             console.log(value.key);
             this.authService.emailConfirm(userEmail, value.key).subscribe(response => {
               if (response.success) {
-                this.messageService.showSuccessAlert(response.message, { iconType: SwalIconType.Success });
+                this.messageService.showSuccessAlert(response.message);
               }
             }, responseErr => {
-              this.messageService.showSuccessAlert(responseErr.error.message, { iconType: SwalIconType.Error });
+              this.messageService.showErrorAlert(responseErr.error.message);
             })
           }
         }
