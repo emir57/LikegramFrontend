@@ -40,14 +40,6 @@ export class PostsPage implements OnInit {
     this.postService.getPosts(this.user.id).subscribe(response => {
       if (response.success) {
         this.posts = response.data
-        this.posts.forEach(p => {
-          this.postLikeService.checkLike(this.user.id, p.id).subscribe(isLikeResponse => {
-            p.isClickHeart = isLikeResponse.success;
-          })
-          this.favouritePostService.checkFavouritePost(this.user.id, p.id).subscribe(response => {
-            p.isClickBookmark = response.success;
-          })
-        })
       }
     })
   }
