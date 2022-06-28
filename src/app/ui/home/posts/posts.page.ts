@@ -147,14 +147,22 @@ export class PostsPage implements OnInit {
     // let settingModal = $("#postsetting" + post.id);
     // settingModal.fadeToggle();
     let settingDiv = $("#postSettingsDiv");
+    let bacground = $("#postSettingsDivBackground");
+
     settingDiv.fadeIn();
     settingDiv.css("bottom", "0");
-    post.isClickSettings = true;
+    bacground.fadeIn();
+    bacground.css("bottom", "0");
   }
+
   closePostSetting() {
     let settingDiv = $("#postSettingsDiv");
+    let bacground = $("#postSettingsDivBackground");
+
     settingDiv.fadeOut();
     settingDiv.css("bottom", "-45%");
+    bacground.fadeOut();
+    bacground.css("bottom", "-100%");
   }
 
   getDate(dateString: string) {
