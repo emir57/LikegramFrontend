@@ -200,17 +200,32 @@ export class PostsPage implements OnInit {
 
   share() {
     let button = $(".roundButton:first");
-
+    button.click(function () {
+      button.css("transform", "scale(0.7)");
+      setTimeout(() => {
+        button.css("transform", "scale(1)");
+      }, 300);
+    })
   }
 
   link() {
     let button = $(".roundButton:nth-child(2)");
-
+    button.click(function () {
+      button.css("transform", "scale(0.7)");
+      setTimeout(() => {
+        button.css("transform", "scale(1)");
+      }, 300);
+    })
   }
 
   complaint() {
     let button = $(".roundButton:nth-child(3)");
-
+    button.click(function () {
+      button.css("transform", "scale(0.7)");
+      setTimeout(() => {
+        button.css("transform", "scale(1)");
+      }, 300);
+    })
   }
 
 
