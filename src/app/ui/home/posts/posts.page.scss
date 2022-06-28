@@ -6,16 +6,19 @@
   background-size: cover;
   border-radius: 50%;
 }
-.post_title{
+
+.post_title {
   display: flex;
   justify-content: start;
   align-items: center;
   margin-left: 2px;
 }
-.post_title span:last-child{
+
+.post_title span:last-child {
   margin-left: auto;
 }
-.post_title span:nth-child(2){
+
+.post_title span:nth-child(2) {
   margin-left: 6px;
 }
 
@@ -29,6 +32,7 @@
   align-items: center;
   font-size: 27px;
 }
+
 .post_navigation a {
   margin-left: 4px;
   margin-right: 4px;
@@ -37,11 +41,12 @@
 .post_navigation a:first-child {
   font-size: 30px;
 }
+
 .post_navigation a:last-child {
   margin-left: auto;
 }
 
-.post_settings{
+.post_settings {
   font-size: medium;
   position: absolute;
   width: 40%;
@@ -50,4 +55,10 @@
   display: none;
 }
 
-
+#postSettingsDiv {
+  position: absolute;
+  width: 100%;
+  background: black;
+  min-height: 45%;
+  bottom: 0;
+}
