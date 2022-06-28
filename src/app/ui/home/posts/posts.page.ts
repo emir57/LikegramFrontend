@@ -32,6 +32,13 @@ export class PostsPage implements OnInit {
   async ngOnInit() {
     await this.getUser();
     this.getPosts();
+
+    let slideBtn = $("#slideBtn");
+    slideBtn.mouseenter(function () {
+      slideBtn.click(()=>{
+        console.log("move")
+      })
+    });
   }
   async getUser() {
     this.user = JSON.parse(await this.storageService.getValue(KeyType.User))
