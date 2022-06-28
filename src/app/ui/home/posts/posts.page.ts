@@ -7,6 +7,7 @@ import { FavouritePostService } from 'src/app/services/favourite-post.service';
 import { PostLikeService } from 'src/app/services/post-like.service';
 import { PostService } from 'src/app/services/post.service';
 import { KeyType, StorageService } from 'src/app/services/storage.service';
+
 declare var $: any;
 @Component({
   selector: 'app-posts',
@@ -33,6 +34,7 @@ export class PostsPage implements OnInit {
     await this.getUser();
     this.getPosts();
     this.postSettingSlideDown();
+    this.postSettingArrowAnimation();
   }
   postSettingSlideDown() {
     let slideBtn = document.getElementById("slideBtn");
@@ -41,6 +43,25 @@ export class PostsPage implements OnInit {
       this.closePostSetting();
     }, false)
   }
+
+  postSettingArrowAnimation() {
+    let arrow1 = $("#downArrow1");
+    let arrow2 = $("#downArrow2");
+    setInterval(() => {
+      setTimeout(() => {
+        arrow1.fadeIn();
+        arrow2.fadeOut();
+      }, 0);
+      setTimeout(() => {
+        arrow2.fadeIn();
+      }, 200);
+      setTimeout(() => {
+        arrow1.fadeOut();
+        arrow2.fadeOut();
+      }, 400);
+    }, 500)
+  }
+
   async getUser() {
     this.user = JSON.parse(await this.storageService.getValue(KeyType.User))
   }
