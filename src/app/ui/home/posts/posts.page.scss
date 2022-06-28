@@ -103,7 +103,13 @@
   justify-content: center;
 }
 
+#postSettingsDiv>div:nth-child(2)>div:last-child {
+  //complaint button
+  color: #CB4335;
+}
+
 #postSettingsDiv>div:nth-child(2)>div>span:first-child {
+  //buttons top
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,6 +121,6 @@
 }
 
 #postSettingsDiv>div:nth-child(2)>div>span:last-child {
-  display: flex;
-  justify-content: center;
+  // buttons bottom text
+
 }
