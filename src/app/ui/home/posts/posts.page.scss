@@ -59,10 +59,12 @@
   display: none;
   position: absolute;
   width: 100%;
-  background: black;
+  background: white;
   min-height: 45%;
   bottom: -45%;
   transition: bottom .5s;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
 }
 
 
