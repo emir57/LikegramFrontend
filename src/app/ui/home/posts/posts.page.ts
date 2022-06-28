@@ -144,8 +144,10 @@ export class PostsPage implements OnInit {
   }
 
   openPostSetting(post: PostModel) {
-    let settingModal = $("#postsetting" + post.id);
-    settingModal.fadeToggle();
+    // let settingModal = $("#postsetting" + post.id);
+    // settingModal.fadeToggle();
+    let settingDiv = $("#postSettingsDiv");
+    settingDiv.fadeToggle();
   }
 
   getDate(dateString: string) {
