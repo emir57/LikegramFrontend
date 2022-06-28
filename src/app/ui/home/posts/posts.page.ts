@@ -32,13 +32,13 @@ export class PostsPage implements OnInit {
   async ngOnInit() {
     await this.getUser();
     this.getPosts();
-    let isDrag = true;
+    this.postSettingSlideDown();
+  }
+  postSettingSlideDown() {
     let slideBtn = document.getElementById("slideBtn");
-    slideBtn.addEventListener("touchstart", () => {
-      console.log("touch start")
-    }, false)
-    slideBtn.addEventListener("touchend", () => {
-      console.log("touch end")
+    slideBtn.addEventListener("swiped-down", (event) => {
+      console.log(event)
+      this.closePostSetting();
     }, false)
   }
   async getUser() {
