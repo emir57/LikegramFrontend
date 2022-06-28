@@ -38,8 +38,15 @@ export class PostsPage implements OnInit {
   }
   postSettingSlideDown() {
     let slideBtn = document.getElementById("slideBtn");
+    let postSettingsDiv = document.getElementById("postSettingsDiv");
+    let postSettingsDivBackground = document.getElementById("postSettingsDivBackground");
     slideBtn.addEventListener("swiped-down", (event) => {
-      console.log(event)
+      this.closePostSetting();
+    }, false);
+    postSettingsDiv.addEventListener("swiped-down", (event) => {
+      this.closePostSetting();
+    }, false)
+    postSettingsDivBackground.addEventListener("swiped-down", (event) => {
       this.closePostSetting();
     }, false)
   }
