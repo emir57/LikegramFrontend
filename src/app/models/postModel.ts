@@ -14,4 +14,5 @@ export interface PostModel {
   isClickHeart: boolean;
   isClickBookmark: boolean;
   isClickComment: boolean;
+  isClickSettings:boolean;
 }
