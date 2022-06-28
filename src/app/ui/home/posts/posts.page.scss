@@ -91,3 +91,14 @@
   display: flex;
   justify-content: space-around;
 }
+
+#postSettingsDiv>div:nth-child(2)>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#postSettingsDiv>div:nth-child(2)>div>span {
+  display: flex;
+  justify-content: center;
+}
