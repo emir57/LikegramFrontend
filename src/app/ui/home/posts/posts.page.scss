@@ -80,3 +80,8 @@
   transition: bottom .4s;
   z-index: 998;
 }
+
+#postSettingsDiv > div:first-child(){
+  display: flex;
+  justify-content: center;
+}
