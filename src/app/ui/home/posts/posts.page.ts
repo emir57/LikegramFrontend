@@ -173,8 +173,6 @@ export class PostsPage implements OnInit {
   }
 
   openPostSetting(post: PostModel) {
-    // let settingModal = $("#postsetting" + post.id);
-    // settingModal.fadeToggle();
     let settingDiv = $("#postSettingsDiv");
     let bacground = $("#postSettingsDivBackground");
 
@@ -185,11 +183,12 @@ export class PostsPage implements OnInit {
   }
 
   closePostSetting() {
+    let height = 45;
     let settingDiv = $("#postSettingsDiv");
     let bacground = $("#postSettingsDivBackground");
 
     settingDiv.fadeOut();
-    settingDiv.css("bottom", "-45%");
+    settingDiv.css("bottom", `-${height}%`);
     bacground.fadeOut();
     bacground.css("bottom", "-100%");
   }
