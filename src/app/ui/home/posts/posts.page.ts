@@ -16,6 +16,7 @@ declare var $: any;
 })
 export class PostsPage implements OnInit {
 
+  selectedPost: PostModel = undefined;
   posts: PostModel[] = [];
   isClickHeart: boolean = false;
   isClickBookmark: boolean = false;
