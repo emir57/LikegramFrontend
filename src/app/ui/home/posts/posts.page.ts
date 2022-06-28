@@ -197,4 +197,21 @@ export class PostsPage implements OnInit {
     let date = new Date(dateString);
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
   }
+
+  share() {
+    let button = $(".roundButton:first");
+
+  }
+
+  link() {
+    let button = $(".roundButton:nth-child(2)");
+
+  }
+
+  complaint() {
+    let button = $(".roundButton:nth-child(3)");
+
+  }
+
+
 }
