@@ -64,3 +64,14 @@
   bottom: -45%;
   transition: bottom .5s;
 }
+
+
+#postSettingsDivBackground {
+  display: none;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: black;
+  opacity: .4;
+  transition: bottom .4s;
+}
