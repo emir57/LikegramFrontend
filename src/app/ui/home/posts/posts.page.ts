@@ -181,6 +181,7 @@ export class PostsPage implements OnInit {
   }
 
   openPostSetting(post: PostModel) {
+    this.selectedPost = post;
     let settingDiv = $("#postSettingsDiv");
     let bacground = $("#postSettingsDivBackground");
 
@@ -191,6 +192,7 @@ export class PostsPage implements OnInit {
   }
 
   closePostSetting() {
+    this.selectedPost = undefined;
     let height = 45;
     let settingDiv = $("#postSettingsDiv");
     let bacground = $("#postSettingsDivBackground");
