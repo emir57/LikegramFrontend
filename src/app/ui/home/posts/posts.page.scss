@@ -124,3 +124,17 @@
   // buttons bottom text
 
 }
+
+//other buttons
+#postSettingsDiv>div:nth-child(3) {
+  padding: 0;
+}
+
+#postSettingsDiv>div:nth-child(3)>div {
+  padding: 10px;
+}
+
+#postSettingsDiv>div:nth-child(3)>div:first-child {
+  border-top: 1px solid #D7DBDD;
+  border-bottom: 1px solid #D7DBDD;
+}
