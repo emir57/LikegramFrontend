@@ -1,0 +1,144 @@
+.post_kullanici_photo {
+  width: 35px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.post_title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 2px;
+}
+
+.post_title span:last-child {
+  margin-left: auto;
+}
+
+.post_title span:nth-child(2) {
+  margin-left: 6px;
+}
+
+.post_kullanici_adi {
+  font-size: medium;
+}
+
+.post_navigation {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 27px;
+}
+
+.post_navigation a {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.post_navigation a:first-child {
+  font-size: 30px;
+}
+
+.post_navigation a:last-child {
+  margin-left: auto;
+}
+
+.post_settings {
+  font-size: medium;
+  position: absolute;
+  width: 40%;
+  height: auto;
+  left: 60%;
+  display: none;
+}
+
+#postSettingsDiv {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background: white;
+  min-height: 45%;
+  bottom: -45%;
+  transition: bottom .5s;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  z-index: 999;
+  padding: 10px;
+}
+
+
+#postSettingsDivBackground {
+  display: none;
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: black;
+  opacity: .4;
+  bottom: 100%;
+  transition: bottom .4s;
+  z-index: 998;
+}
+
+#postSettingsDiv>div:first-child {
+  display: flex;
+  justify-content: center;
+}
+
+#postSettingsDiv>div:nth-child(2) {
+  display: flex;
+  justify-content: space-around;
+}
+
+#postSettingsDiv>div:nth-child(2)>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#postSettingsDiv>div:nth-child(2)>div>span {
+  display: flex;
+  justify-content: center;
+}
+
+#postSettingsDiv>div:nth-child(2)>div:last-child {
+  //complaint button
+  color: #CB4335;
+}
+
+#postSettingsDiv>div:nth-child(2)>div>span:first-child {
+  //buttons top
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 1px solid #D7DBDD;
+}
+
+#postSettingsDiv>div:nth-child(2)>div>span:last-child {
+  // buttons bottom text
+
+}
+
+//other buttons
+#postSettingsDiv>div:nth-child(3) {
+  padding: 0;
+}
+
+#postSettingsDiv>div:nth-child(3)>div {
+  padding: 10px;
+}
+
+#postSettingsDiv>div:nth-child(3)>div:first-child {
+  border-top: 1px solid #D7DBDD;
+  border-bottom: 1px solid #D7DBDD;
+}
+
+.roundButton {
+  transition: all .2s ease-in-out;
+}
