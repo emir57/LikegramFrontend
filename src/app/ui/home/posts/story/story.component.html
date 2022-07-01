@@ -10,9 +10,9 @@
       Hikayen
     </div>
   </div>
-  <div id="story-card{{story.id}}" (click)="openStory()" *ngFor="let story of items" class="story-card">
+  <div id="story-card{{story.id}}" (click)="openStory(story)" *ngFor="let story of items" class="story-card">
     <div class="story-body">
-      <div id="your-profile-photo" class="story-profile-photo">
+      <div id="your-profile-photo{{story.id}}" class="story-profile-photo">
         <img width="60px" height="60px" style="border-radius: 50%;" src="{{baseUrl}}images/download.jpg" />
       </div>
       <div class="story-profile-name">

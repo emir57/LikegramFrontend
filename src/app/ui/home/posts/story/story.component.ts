@@ -23,8 +23,12 @@ export class StoryComponent implements OnInit {
     }, 200);
   }
 
-  openStory() {
-
+  openStory(story: any) {
+    const profile = $(`#your-profile-photo${story.id}`);
+    profile.css("transform", "scale(.8)");
+    setTimeout(() => {
+      profile.css("transform", "scale(1)");
+    }, 200);
   }
 
 }
