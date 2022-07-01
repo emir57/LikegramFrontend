@@ -8,7 +8,7 @@ declare var $: any;
 })
 export class StoryComponent implements OnInit {
 
-  items: any[] = [{}, {}, {}, {}, {}, {}, {}, {}];
+  items: any[] = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }, { id: 7 }, { id: 8 }];
   constructor(
     @Inject("baseUrl") public baseUrl: string
   ) { }
@@ -16,11 +16,15 @@ export class StoryComponent implements OnInit {
   ngOnInit() { }
 
   shareStory() {
-    const your_story = $("#your-story");
+    const your_story = $("#your-profile-photo");
     your_story.css("transform", "scale(.8)");
     setTimeout(() => {
       your_story.css("transform", "scale(1)");
     }, 200);
+  }
+
+  openStory() {
+
   }
 
 }
