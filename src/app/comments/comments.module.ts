@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CommentsPageRoutingModule } from './comments-routing.module';
 
 import { CommentsPage } from './comments.page';
+import { CommentModule } from './comment/comment.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CommentsPageRoutingModule
+    CommentsPageRoutingModule,
+    CommentModule
   ],
   declarations: [CommentsPage]
 })
-export class CommentsPageModule {}
+export class CommentsPageModule { }
