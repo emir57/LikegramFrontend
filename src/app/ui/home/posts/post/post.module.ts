@@ -10,7 +10,7 @@ import { PostComponent } from './post.component';
   ],
   imports: [
     CommonModule
-  ],exports:[
+  ], exports: [
     PostComponent
   ]
 })
