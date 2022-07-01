@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoryComponent } from './story.component';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -9,7 +10,8 @@ import { StoryComponent } from './story.component';
     StoryComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IonicModule
   ], exports: [
     StoryComponent
   ]
