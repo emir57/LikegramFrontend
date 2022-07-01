@@ -30,6 +30,8 @@ export class PostComponent implements OnInit {
 
   async ngOnInit() {
     await this.getUser();
+    this.postSettingArrowAnimation();
+    this.postSettingSlideDown();
   }
 
   async getUser() {
