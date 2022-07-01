@@ -7,7 +7,7 @@ import { KeyType, StorageService } from 'src/app/services/storage.service';
 declare var $: any;
 
 @Component({
-  selector: 'app-comment',
+  selector: 'comment-card',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.scss'],
 })
