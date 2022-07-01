@@ -7,6 +7,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 })
 export class StoryComponent implements OnInit {
 
+  items: any[] = [{}, {}, {}, {}];
   constructor(
     @Inject("baseUrl") public baseUrl: string
   ) { }
