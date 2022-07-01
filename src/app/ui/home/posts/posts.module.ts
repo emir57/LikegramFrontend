@@ -17,6 +17,8 @@ import { PostModule } from './post/post.module';
     PostsPageRoutingModule,
     PostModule
   ],
-  declarations: []
+  declarations: [
+    PostsPage
+  ]
 })
 export class PostsPageModule { }

@@ -17,7 +17,7 @@ import { PostsPage } from './posts/posts.page';
     IonicModule.forRoot(),
     HomePageRoutingModule,
   ],
-  declarations: [HomePage, PostsPage],
+  declarations: [HomePage],
   exports: [HomePage]
 })
 export class HomePageModule { }
