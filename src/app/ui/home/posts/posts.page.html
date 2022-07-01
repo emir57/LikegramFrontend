@@ -12,7 +12,9 @@
 </ion-header>
 
 <ion-content>
-
+  <div style="width: 100%;height: 70px;background-color: red;">
+    <story-card></story-card>
+  </div>
   <post-card *ngFor="let post of posts" [post]="post"></post-card>
 </ion-content>
 <div id="postSettingsDiv">
