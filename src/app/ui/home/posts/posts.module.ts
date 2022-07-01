@@ -8,6 +8,7 @@ import { PostsPageRoutingModule } from './posts-routing.module';
 
 import { PostsPage } from './posts.page';
 import { PostModule } from './post/post.module';
+import { StoryModule } from './story/story.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { PostModule } from './post/post.module';
     FormsModule,
     IonicModule,
     PostsPageRoutingModule,
-    PostModule
+    PostModule,
+    StoryModule
   ],
   declarations: [
     PostsPage
