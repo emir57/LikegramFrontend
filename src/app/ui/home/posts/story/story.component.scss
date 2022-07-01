@@ -21,6 +21,7 @@
 }
 
 .story-profile-photo {
+  position: relative;
   margin-bottom: 2px;
 }
 
@@ -34,4 +35,5 @@
   justify-content: center;
   align-items: center;
   color: #fff;
+  right: 0;
 }
