@@ -24,10 +24,14 @@
   margin-bottom: 2px;
 }
 
-#your-story{
+#your-story {
   width: 20px;
   height: 20px;
   background-color: red;
   border-radius: 50%;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 }
