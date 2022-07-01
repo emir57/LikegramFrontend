@@ -1,51 +1,4 @@
-.post_kullanici_photo {
-  width: 35px;
-  height: 35px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 50%;
-}
-
-.post_title {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin-left: 2px;
-}
-
-.post_title span:last-child {
-  margin-left: auto;
-}
-
-.post_title span:nth-child(2) {
-  margin-left: 6px;
-}
-
-.post_kullanici_adi {
-  font-size: medium;
-}
-
-.post_navigation {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  font-size: 27px;
-}
-
-.post_navigation a {
-  margin-left: 4px;
-  margin-right: 4px;
-}
-
-.post_navigation a:first-child {
-  font-size: 30px;
-}
-
-.post_navigation a:last-child {
-  margin-left: auto;
-}
-
+//PostSettings
 .post_settings {
   font-size: medium;
   position: absolute;
@@ -139,6 +92,6 @@
   border-bottom: 1px solid #D7DBDD;
 }
 
-.roundButton{
+.roundButton {
   transition: all .2s ease-in-out;
 }
