@@ -1,6 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { PostCommentModel } from 'src/app/models/postCommentModel';
 import { UserModel } from 'src/app/models/userModel';
+import { AnswerService } from 'src/app/services/answer.service';
 import { CommentLikeService } from 'src/app/services/comment-like.service';
 import { KeyType, StorageService } from 'src/app/services/storage.service';
 declare var $: any;
@@ -12,12 +13,14 @@ declare var $: any;
 })
 export class CommentComponent implements OnInit {
 
-  @Input() comment: PostCommentModel
+  @Input() comment: PostCommentModel;
   user: UserModel;
+  selectedComment: PostCommentModel = undefined;
   constructor(
     private commentLikeService: CommentLikeService,
     private storageService: StorageService,
-    @Inject("baseUrl") public baseUrl: string
+    @Inject("baseUrl") public baseUrl: string,
+    private answerService: AnswerService
   ) { }
 
   async ngOnInit() {
@@ -76,9 +79,28 @@ export class CommentComponent implements OnInit {
     this.selectedComment = undefined;
   }
 
+  getAnswers(comment: PostCommentModel) {
+    if (comment.isClickShowAnswer) {
+      comment.isClickShowAnswer = false;
+      comment.commentAnswers = [];
+    } else {
+      comment.isClickShowAnswer = true;
+      this.answerService.getAnswersByCommentId(comment.id).subscribe(async response => {
+        if (response.success) {
+          comment.commentAnswers = response.data;
+          this.sortAnswers(comment);
+        }
+      })
+    }
+  }
+  sortAnswers(comment: PostCommentModel) {
+    comment.commentAnswers.sort((a, b) => (new Date(b.createdDate)).getTime() - (new Date(a.createdDate)).getTime())
+  }
+
   getDate(dateString: string) {
     let date = new Date(dateString);
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
   }
+
 
 }
