@@ -26,8 +26,8 @@
 }
 
 #your-story {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   background-color: #3498DB;
   border-radius: 50%;
   position: absolute;
@@ -37,4 +37,6 @@
   color: #fff;
   right: 0;
   bottom: 0;
+  border: 2px solid;
+  border-color: #fff;
 }
