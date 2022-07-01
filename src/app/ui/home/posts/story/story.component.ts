@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'story-card',
@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    @Inject("baseUrl") public baseUrl: string
+  ) { }
 
   ngOnInit() { }
 
