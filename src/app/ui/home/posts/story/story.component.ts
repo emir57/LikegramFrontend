@@ -1,4 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
+declare var $: any;
 
 @Component({
   selector: 'story-card',
@@ -13,5 +14,13 @@ export class StoryComponent implements OnInit {
   ) { }
 
   ngOnInit() { }
+
+  shareStory() {
+    const your_story = $("#your-story");
+    your_story.css("transform", "scale(.8)");
+    setTimeout(() => {
+      your_story.css("transform", "scale(1)");
+    }, 200);
+  }
 
 }
