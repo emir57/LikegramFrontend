@@ -1,10 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { CommentsPage } from 'src/app/comments/comments.page';
 import { PostModel } from 'src/app/models/postModel';
 import { Usermodel } from 'src/app/services/auth.service';
-import { FavouritePostService } from 'src/app/services/favourite-post.service';
-import { PostLikeService } from 'src/app/services/post-like.service';
 import { PostService } from 'src/app/services/post.service';
 import { KeyType, StorageService } from 'src/app/services/storage.service';
 
@@ -16,19 +13,13 @@ declare var $: any;
 })
 export class PostsPage implements OnInit {
 
-  selectedPost: PostModel = undefined;
   posts: PostModel[] = [];
-  isClickHeart: boolean = false;
-  isClickBookmark: boolean = false;
   user: Usermodel
-  items: any[] = [{}, {}, {}, {}]
   constructor(
     private storageService: StorageService,
     private postService: PostService,
     @Inject("baseUrl") public baseUrl: string,
-    private modalController: ModalController,
-    private postLikeService: PostLikeService,
-    private favouritePostService: FavouritePostService
+    private modalController: ModalController
   ) { }
 
   async ngOnInit() {
