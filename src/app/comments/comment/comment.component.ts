@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { PostCommentModel } from 'src/app/models/postCommentModel';
 import { UserModel } from 'src/app/models/userModel';
 import { CommentLikeService } from 'src/app/services/comment-like.service';
@@ -16,7 +16,8 @@ export class CommentComponent implements OnInit {
   user: UserModel;
   constructor(
     private commentLikeService: CommentLikeService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    @Inject("baseUrl") public baseUrl: string
   ) { }
 
   async ngOnInit() {
