@@ -10,7 +10,7 @@ import { KeyType, StorageService } from 'src/app/services/storage.service';
 declare var $: any;
 
 @Component({
-  selector: 'app-post',
+  selector: 'post-card',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
 })
