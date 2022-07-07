@@ -38,14 +38,11 @@ export class PostsPage implements OnInit {
   }
 
   share() {
-    const button = $("#shareButton");
     const icon = $("#shareIcon");
-    button.click(() => {
-      icon.css("transform", "scale(0.7)");
-      setTimeout(() => {
-        icon.css("transform", "scale(1)");
-      }, 300);
-    })
+    icon.css("transform", "scale(0.7)");
+    setTimeout(() => {
+      icon.css("transform", "scale(1)");
+    }, 300);
     // this.scaleAnimation(button);
   }
 
