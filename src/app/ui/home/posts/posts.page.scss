@@ -45,6 +45,10 @@
   justify-content: space-around;
 }
 
+#postSettingsDiv>div:nth-child(2)>span {
+  transition: all .2s ease-in-out;
+}
+
 #postSettingsDiv>div:nth-child(2)>div {
   display: flex;
   flex-direction: column;
