@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <div id="title">
-        <span id="likegram">
-          {{user.username}}
-        </span>
-        <span>
-          <ion-icon name="menu-outline"></ion-icon>
-        </span>
-      </div>
+      <span id="likegram">
+        {{user.username}}
+      </span>
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openMenu()">
+        <ion-icon style="font-size: 35px;" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

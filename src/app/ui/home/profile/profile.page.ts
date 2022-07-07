@@ -22,4 +22,8 @@ export class ProfilePage implements OnInit {
     this.user = JSON.parse(await this.storageService.getValue(KeyType.User));
   }
 
+  openMenu() {
+
+  }
+
 }
