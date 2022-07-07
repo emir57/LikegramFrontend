@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { FollowUserModel } from '../models/followUserModel';
-import { ResponseModel, ResponseSingleModel } from './auth.service';
+import { ResponseListModel, ResponseModel, ResponseSingleModel } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +25,12 @@ export class FollowUserService {
 
   followedUserCount(followingUserId: number) {
     let url = `${this.baseUrl}api/users/followedUserCount/${followingUserId}`;
-    this.http.get<ResponseSingleModel<number>>(url);
+    return this.http.get<ResponseListModel<FollowUserModel>>(url);
   }
 
   followingUserCount(followedUserId: number) {
     let url = `${this.baseUrl}api/users/followingUserCount/${followedUserId}`;
-    this.http.get<ResponseSingleModel<number>>(url);
+    return this.http.get<ResponseListModel<FollowUserModel>>(url);
   }
 
 }
