@@ -27,4 +27,10 @@ export class FollowUserService {
     let url = `${this.baseUrl}api/users/followedUserCount/${followingUserId}`;
     this.http.get<ResponseSingleModel<number>>(url);
   }
+
+  followingUserCount(followedUserId: number) {
+    let url = `${this.baseUrl}api/users/followingUserCount/${followedUserId}`;
+    this.http.get<ResponseSingleModel<number>>(url);
+  }
+
 }
