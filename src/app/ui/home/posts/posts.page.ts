@@ -26,6 +26,16 @@ export class PostsPage implements OnInit {
     await this.getUser();
     this.getPosts();
   }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+
   async getUser() {
     this.user = JSON.parse(await this.storageService.getValue(KeyType.User))
   }

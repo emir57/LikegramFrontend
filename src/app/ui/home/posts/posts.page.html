@@ -15,6 +15,9 @@
   <div>
     <story-card></story-card>
   </div>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <post-card *ngFor="let post of posts" [post]="post"></post-card>
 </ion-content>
 <div id="postSettingsDiv">
