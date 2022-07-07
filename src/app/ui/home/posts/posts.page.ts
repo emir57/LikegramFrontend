@@ -27,22 +27,22 @@ export class PostsPage implements OnInit {
     this.getPosts();
   }
 
-  doRefresh(event) {
-    console.log('Begin async operation');
-
-    setTimeout(() => {
-      console.log('Async operation has ended');
+  async doRefresh(event) {
+    await this.getPosts(() => {
       event.target.complete();
-    }, 2000);
+    })
   }
 
   async getUser() {
     this.user = JSON.parse(await this.storageService.getValue(KeyType.User))
   }
-  getPosts() {
+
+  getPosts(callBackFunction?: () => void) {
     this.postService.getPosts(this.user.id).subscribe(response => {
       if (response.success) {
         this.posts = response.data
+        if (callBackFunction)
+          callBackFunction();
       }
     })
   }
