@@ -43,17 +43,22 @@ export class PostsPage implements OnInit {
     setTimeout(() => {
       icon.css("transform", "scale(1)");
     }, 300);
-    // this.scaleAnimation(button);
   }
 
   link() {
-    let button = $(".roundButton:nth-child(2)");
-    this.scaleAnimation(button);
+    const icon = $("#linkIcon");
+    icon.css("transform", "scale(0.7)");
+    setTimeout(() => {
+      icon.css("transform", "scale(1)");
+    }, 200);
   }
 
   complaint() {
-    let button = $(".roundButton:nth-child(3)");
-    this.scaleAnimation(button);
+    const icon = $("#complaintIcon");
+    icon.css("transform", "scale(0.7)");
+    setTimeout(() => {
+      icon.css("transform", "scale(1)");
+    }, 200);
   }
 
   scaleAnimation(button: any) {
@@ -61,7 +66,7 @@ export class PostsPage implements OnInit {
       button.css("transform", "scale(0.7)");
       setTimeout(() => {
         button.css("transform", "scale(1)");
-      }, 300);
+      }, 200);
     })
   }
 
