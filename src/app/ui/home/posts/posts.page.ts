@@ -39,26 +39,17 @@ export class PostsPage implements OnInit {
 
   share() {
     const icon = $("#shareIcon");
-    icon.css("transform", "scale(0.7)");
-    setTimeout(() => {
-      icon.css("transform", "scale(1)");
-    }, 300);
+    this.scaleAnimation(icon);
   }
 
   link() {
     const icon = $("#linkIcon");
-    icon.css("transform", "scale(0.7)");
-    setTimeout(() => {
-      icon.css("transform", "scale(1)");
-    }, 200);
+    this.scaleAnimation(icon);
   }
 
   complaint() {
     const icon = $("#complaintIcon");
-    icon.css("transform", "scale(0.7)");
-    setTimeout(() => {
-      icon.css("transform", "scale(1)");
-    }, 200);
+    this.scaleAnimation(icon);
   }
 
   scaleAnimation(icon: any) {
