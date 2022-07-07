@@ -15,8 +15,8 @@ export class ProfilePage implements OnInit {
     private storageService: StorageService
   ) { }
 
-  ngOnInit() {
-    this.getUser();
+  async ngOnInit() {
+    await this.getUser();
   }
   async getUser() {
     this.user = JSON.parse(await this.storageService.getValue(KeyType.User));

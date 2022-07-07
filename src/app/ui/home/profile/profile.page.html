@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <span id="likegram">
+      <span *ngIf="user" id="likegram">
         {{user.username}}
       </span>
     </ion-title>
@@ -14,7 +14,7 @@
 </ion-header>
 
 <ion-content>
-  <div id="profile">
+  <div id="profile" *ngIf="user">
     <div id="top-navigation">
       <span>
         <img [src]="baseUrl+user.profilePhoto" alt="">
