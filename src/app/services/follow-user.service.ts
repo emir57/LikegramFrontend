@@ -17,4 +17,9 @@ export class FollowUserService {
     let url = ``;
     this.http.post<ResponseModel>(url, followUser);
   }
+
+  delete(followUserId: number) {
+    let url = `/${followUserId}`;
+    this.http.delete<ResponseModel>(url);
+  }
 }
