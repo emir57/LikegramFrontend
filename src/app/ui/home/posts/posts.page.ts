@@ -61,14 +61,10 @@ export class PostsPage implements OnInit {
     }, 200);
   }
 
-  scaleAnimation(button: any) {
-    button.click(function () {
-      button.css("transform", "scale(0.7)");
-      setTimeout(() => {
-        button.css("transform", "scale(1)");
-      }, 200);
-    })
+  scaleAnimation(icon: any) {
+    icon.css("transform", "scale(0.7)");
+    setTimeout(() => {
+      icon.css("transform", "scale(1)");
+    }, 200);
   }
-
-
 }
