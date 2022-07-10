@@ -29,9 +29,9 @@
 }
 
 .gradient-border{
-  border: 5px solid transparent;
+  border: 3px solid transparent;
   background: linear-gradient(#fff, #fff) padding-box,
-  linear-gradient(45deg, slateblue, coral) border-box;
+  linear-gradient(to right, red, orange) border-box;
   border-radius: 50%;
 }
 
