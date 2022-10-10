@@ -30,12 +30,12 @@ export class FavouritePostService {
     return this.http.put<ResponseModel>(url, favouritePost);
   }
   deleteFavouritePost(favouritePostId: number) {
-    let url = `${this.baseUrl}api/favouriteposts?id=${favouritePostId}`;
+    let url = `${this.baseUrl}api/favouriteposts/${favouritePostId}`;
     return this.http.delete<ResponseModel>(url);
   }
 
   deleteOrAdd(userId: number, postId: number) {
-    let url = `${this.baseUrl}api/favouriteposts/deleteoradd`;
+    let url = `${this.baseUrl}api/favouriteposts`;
     return this.http.post<ResponseModel>(url, {
       userId: userId,
       postId: postId

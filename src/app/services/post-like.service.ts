@@ -13,7 +13,7 @@ export class PostLikeService {
   ) { }
 
   likeOrUnlike(userId: number, postId: number) {
-    let newUrl = `${this.baseUrl}api/postlikes/likeorunlike`;
+    let newUrl = `${this.baseUrl}api/postlikes`;
     return this.http.post<ResponseModel>(newUrl, {
       userId, postId
     });
