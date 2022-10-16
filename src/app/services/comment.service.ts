@@ -14,20 +14,20 @@ export class CommentService {
   ) { }
 
   getCommentsByPost(postId: number) {
-    let url = `${this.baseUrl}api/comments/getcommentsbypost?postId=${postId}`;
+    let url = `${this.baseUrl}api/comments/postComments/${postId}`;
     return this.http.get<ResponseListModel<PostCommentModel>>(url);
   }
 
   add(commentModel: PostCommentModel) {
-    let url = `${this.baseUrl}api/comments/add`;
+    let url = `${this.baseUrl}api/comments`;
     return this.http.post<ResponseModel>(url, commentModel);
   }
   update(commentModel: PostCommentModel) {
-    let url = `${this.baseUrl}api/comments/update`;
+    let url = `${this.baseUrl}api/comments`;
     return this.http.put<ResponseModel>(url, commentModel);
   }
   delete(commentId: number) {
-    let url = `${this.baseUrl}api/comments/delete?id=${commentId}`;
+    let url = `${this.baseUrl}api/comments/${commentId}`;
     return this.http.delete<ResponseModel>(url);
   }
 }

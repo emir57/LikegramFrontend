@@ -22,15 +22,15 @@ export class AnswerService {
     return this.http.get<ResponseSingleModel<number>>(url);
   }
   add(commentModel: CommentAnswerModel) {
-    let url = `${this.baseUrl}api/answers/add`;
+    let url = `${this.baseUrl}api/answers`;
     return this.http.post<ResponseModel>(url, commentModel);
   }
   update(commentModel: CommentAnswerModel) {
-    let url = `${this.baseUrl}api/answers/update`;
+    let url = `${this.baseUrl}api/answers`;
     return this.http.put<ResponseModel>(url, commentModel);
   }
   delete(answerId: number) {
-    let url = `${this.baseUrl}api/answers/delete?id=${answerId}`;
+    let url = `${this.baseUrl}api/answers/${answerId}`;
     return this.http.delete<ResponseModel>(url);
   }
 }
